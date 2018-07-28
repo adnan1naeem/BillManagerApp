@@ -1,7 +1,7 @@
 import React from 'react'
 import View from "../../components/View/View.Component"
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
-import { ScrollView } from "react-native";
+import { ScrollView, ActivityIndicator } from "react-native";
 import FormInput from "../../components/formInput/formInput.component"
 import FormPicker from "../../components/formPicker/formPicker.component"
 //import Budget from "../../components/Budget/index.component"
@@ -9,6 +9,8 @@ import InputLabel from "../../components/InputLabel/index.component"
 import { Mutation, graphql } from "react-apollo";
 import { Button } from "react-native"
 import { Mutationquery } from "./query.graphql"
+import { withRouter } from 'react-router-native';
+import { query } from "../BillListing/query.graphql"
 export interface State {
 
   BillName: string,
@@ -20,11 +22,14 @@ export interface State {
   UnitRate: number,
   Budget: number,
   BudgetListCounter: number,
-  BudgetList: any
+  BudgetList: any,
+  loader: boolean
 
 }
 export interface Props {
-  mutate: any
+  mutate: any,
+  history: any,
+  loading: any
 }
 class CreatBill extends React.Component<Props, State> {
 
@@ -41,6 +46,8 @@ class CreatBill extends React.Component<Props, State> {
       BudgetListCounter: 0,
       BudgetList: [],
       AssetName: '',
+      loading: false,
+
       AssetItems: [
         { label: 'AC', value: 'AC' },
         { label: 'BULB', value: 'BULB' },
@@ -100,7 +107,17 @@ class CreatBill extends React.Component<Props, State> {
         asset: this.state.AssetName,
         unitrate: this.state.UnitRate,
         month: this.state.month
+      },
+      refetchQueries: [
+        { query: query }
+      ]
+
+    }).then(() => {
+
+      if (this.props.loading == true) {
+        <ActivityIndicator />
       }
+      this.props.history.push('/listing');
     })
 
   }
@@ -172,13 +189,13 @@ class CreatBill extends React.Component<Props, State> {
           <FormPicker value={this.state.month} label="Select Month" handleChange={this.HandleDateChange} Items={Items} />
           <InputLabel keyboardType='numeric' value={this.state.UnitRate} onChangeText={this.HandleUnitRate} label="Unit Rate" />
           <InputLabel keyboardType='numeric' value={this.state.Budget} onChangeText={this.HandleBudgetChange} label="Budget" />
-          <Button onPress={this.handleSaveBill} title="Save" />
+          {this.state.loader == true ? <ActivityIndicator /> : <Button onPress={this.handleSaveBill} title="Save" />}
         </View>
       </ScrollView>
 
     );
   }
 }
-export default graphql(Mutationquery)(CreatBill)
+export default graphql(Mutationquery)(withRouter(CreatBill))
 
 
