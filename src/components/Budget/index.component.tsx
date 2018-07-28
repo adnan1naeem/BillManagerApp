@@ -6,20 +6,7 @@ import FormPicker from "../formPicker/formPicker.component";
 
 const BudgetComponent = (props: any) => {
 
-  const Items = [
-    { value: 'January', label: 'January' },
-    { value: 'February', label: 'February' },
-    { value: 'March', label: 'March' },
-    { value: 'April', label: 'April' },
-    { value: 'May', label: 'May' },
-    { value: 'June', label: 'June' },
-    { value: 'July', label: 'July' },
-    { value: 'August', label: 'August' },
-    { value: 'September', label: 'September' },
-    { value: 'October', label: 'October' },
-    { value: 'November', label: 'November' },
-    { value: 'December', label: 'December' }
-  ]
+
   return (
     <View style={styles.Container}>
       <FormPicker   value={props.month} label="Select Month" handleChange={props.handleChange} Items={Items}  />

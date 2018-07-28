@@ -1,20 +1,14 @@
 import React from 'react'
 import View from "../../components/View/View.Component"
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
-import { StyleSheet, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import FormInput from "../../components/formInput/formInput.component"
 import FormPicker from "../../components/formPicker/formPicker.component"
-import Budget from "../../components/Budget/index.component"
-
+//import Budget from "../../components/Budget/index.component"
+import InputLabel from "../../components/InputLabel/index.component"
+import { Mutation, graphql } from "react-apollo";
 import { Button } from "react-native"
-var styles = StyleSheet.create({
-  toolbar: {
-    height: 56,
-    backgroundColor: '#4883da'
-  },
-});
-
-
+import { Mutationquery } from "./query.graphql"
 export interface State {
 
   BillName: string,
@@ -29,11 +23,13 @@ export interface State {
   BudgetList: any
 
 }
+export interface Props {
+  mutate: any
+}
+class CreatBill extends React.Component<Props, State> {
 
-class CreatBill extends React.Component<{}, State> {
 
-
-  constructor(props: any) {
+  constructor(props: Props) {
 
     super(props);
     this.state = {
@@ -63,21 +59,20 @@ class CreatBill extends React.Component<{}, State> {
     this.HandleBudgetChange = this.HandleBudgetChange.bind(this);
     this.HandleDateChange = this.HandleDateChange.bind(this);
     this.HandleUnitRate = this.HandleUnitRate.bind(this);
-   // this.handleAddBudget = this.handleAddBudget.bind(this);
-   // this.handleRemoveBudget = this.handleRemoveBudget.bind(this);
-  //  this.handleBudgetNameChange = this.handleBudgetNameChange.bind(this);
+    this.handleSaveBill = this.handleSaveBill.bind(this);
 
-
-
+    // this.handleAddBudget = this.handleAddBudget.bind(this);
+    // this.handleRemoveBudget = this.handleRemoveBudget.bind(this);
+    //  this.handleBudgetNameChange = this.handleBudgetNameChange.bind(this);
   }
 
-  HandleBudgetChange(event: any) {
-    this.setState({ Budget: event.target.value })
+  HandleBudgetChange(value: any) {
+    this.setState({ Budget: value })
   }
 
 
-  HandleUnitRate(event: any) {
-    this.setState({ UnitRate: event.target.value })
+  HandleUnitRate(value: any) {
+    this.setState({ UnitRate: value })
   }
   HandleNameChange(value: any) {
     this.setState({ BillName: value })
@@ -92,6 +87,22 @@ class CreatBill extends React.Component<{}, State> {
 
   HandleDateChange(value: any) {
     this.setState({ month: value })
+  }
+
+
+  handleSaveBill() {
+
+    this.props.mutate({
+      variables: {
+        name: this.state.BillName,
+        budget: this.state.Budget,
+        site: this.state.SiteName,
+        asset: this.state.AssetName,
+        unitrate: this.state.UnitRate,
+        month: this.state.month
+      }
+    })
+
   }
 
 
@@ -127,37 +138,47 @@ class CreatBill extends React.Component<{}, State> {
   //   });
   // }
 
-
-
-
   render() {
+    const Items = [
+      { value: 'January', label: 'January' },
+      { value: 'February', label: 'February' },
+      { value: 'March', label: 'March' },
+      { value: 'April', label: 'April' },
+      { value: 'May', label: 'May' },
+      { value: 'June', label: 'June' },
+      { value: 'July', label: 'July' },
+      { value: 'August', label: 'August' },
+      { value: 'September', label: 'September' },
+      { value: 'October', label: 'October' },
+      { value: 'November', label: 'November' },
+      { value: 'December', label: 'December' }
+    ]
+    const { mutate } = this.props
     return (
-
       <ScrollView>
         <ToolbarAndroid
           title="Create"
           BackButton={true}
         />
+
+
         <View style={{ display: 'flex', flexDirection: 'column', padding: 5 }}>
           <FormInput value={this.state.BillName} label="BillName" onValueChange={this.HandleNameChange} />
           <FormPicker handleChange={this.HandleSiteChange} label="Select Site" Items={this.state.SiteItems} value={this.state.SiteName} />
           <FormPicker handleChange={this.HandleAssetChange} label="Select Device" Items={this.state.AssetItems} value={this.state.AssetName} />
-          <Budget handleAddBudget={this.handleAddBudget} UnitRate={this.state.UnitRate} month={this.state.month} Budget={this.state.Budget} handleUnitRate={this.HandleUnitRate} HandleBudgetChange={this.HandleBudgetChange} handleChange={this.HandleDateChange} />        
           {/* {this.state.BudgetList.map((BudgetList: any, idx: any) => <Budget handleAddBudget={this.handleAddBudget()} UnitRate={this.state.UnitRate} month={this.state.month} Budget={this.state.Budget} handleUnitRate={this.HandleUnitRate} HandleBudgetChange={this.HandleBudgetChange} handleChange={this.HandleDateChange} />)} */}
-          <FormPicker   value={props.month} label="Select Month" handleChange={props.handleChange} Items={Items}  />
-         <InputLabel    keyboardType='numeric'   value={props.UnitRate}  onChange={props.HandleUnitRate}label="Unit Rate"    />
-        <InputLabel     keyboardType='numeric'  value={props.Budget} onChange={props.HandleBudgetChange} label="Budget" />
 
 
-          <Button onPress={this.handleAddBudget} title="Save" />
-
+          <FormPicker value={this.state.month} label="Select Month" handleChange={this.HandleDateChange} Items={Items} />
+          <InputLabel keyboardType='numeric' value={this.state.UnitRate} onChangeText={this.HandleUnitRate} label="Unit Rate" />
+          <InputLabel keyboardType='numeric' value={this.state.Budget} onChangeText={this.HandleBudgetChange} label="Budget" />
+          <Button onPress={this.handleSaveBill} title="Save" />
         </View>
       </ScrollView>
 
     );
   }
 }
-
-export default CreatBill;
+export default graphql(Mutationquery)(CreatBill)
 
 

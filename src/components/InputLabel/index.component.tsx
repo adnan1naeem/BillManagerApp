@@ -7,8 +7,8 @@ import React from 'react'
 export interface formInputProps {
 
   label: string,
-  value?:string,
-  onChange:(value:any)=>void
+  value?:any,
+  onChangeText:(value:any)=>void
 
 }
 
@@ -17,7 +17,7 @@ const InputLabelComponent = (props: formInputProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.Name}>{props.label}</Text>
-      <TextInput style={styles.Input} {...props} />
+      <TextInput style={styles.Input}  onChangeText={props.onChangeText}   value={props.value}  {...props} />
     </View>
 
   );
