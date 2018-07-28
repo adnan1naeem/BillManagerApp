@@ -6,12 +6,13 @@ import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.compo
 import { styles } from "./style"
 import Text from "../../components/Text/Text.Component"
 import { Link, router, Redirect } from 'react-router-native';
-import { ScrollView,StatusBar } from "react-native"
+import { ScrollView, StatusBar } from "react-native"
 import { create } from 'domain';
+import { withRouter } from 'react-router-native';
 
 
 export interface Props {
- 
+  history?: any
 }
 
 export interface States {
@@ -35,20 +36,19 @@ class Home extends React.Component<Props, States> {
     return (
       <ScrollView>
 
-                 <StatusBar  />
+        <StatusBar />
 
         <ToolbarAndroid
           title="BillManager"
           BackButton={false}
-          style={{marginLeft:20}}
+          style={{ marginLeft: 20 }}
         />
 
         <View style={{ alignItems: 'center', justifyContent: 'center', height: 600, display: 'flex', flexDirection: 'column' }}>
           <Image source={require("../images/bill.png")} />
           <View style={{ width: 300, display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-            <Link to="/create"><Text>Create</Text></Link>
-            <Link to="/listing"><Text>Listing</Text></Link>
-
+            <Button onPress={() => this.props.history.push('/create')} color="blue" title="create" />
+            <Button onPress={() => this.props.history.push('/listing')} color="blue" title="lisiting" />
           </View>
         </View>
       </ScrollView>
@@ -57,6 +57,6 @@ class Home extends React.Component<Props, States> {
   }
 }
 
-export default Home;
+export default withRouter(Home);
 
 
