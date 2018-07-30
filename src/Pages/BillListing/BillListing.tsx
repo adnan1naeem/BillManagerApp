@@ -1,13 +1,13 @@
 import React from 'react'
 import View from "../../components/View/View.Component"
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
-import { ScrollView, Text, ActivityIndicator,StatusBar } from "react-native";
+import { ScrollView, Text, ActivityIndicator, StatusBar } from "react-native";
 import BillCard from "../../components/BillCard/BillCard.Component"
 import { styles } from "./style"
 import { graphql } from 'react-apollo'
 import { query } from "./query.graphql"
 import { BillSubscription } from "./Subscriptionquery.graphql"
-
+import  {client} from  "../../App"
 export interface State {
   data?: any,
 }
@@ -24,29 +24,31 @@ class BillListing extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
+
+    this.state={
+     data:[]
+    }
   }
 
 
 
-  // componentDidMount() {
-  //   this.props.BillSubscription.subscribeToMore({
-  //     document: BillSubscription,
-  //     variables: null,
-  //     updateQuery: (previousState: any, { subscriptionData }) => {
-  //       const newPost = subscriptionData.data.Bill.node
-  //       return {
-  //         allBills: [
-  //           {
-  //             ...newPost
-  //           },
-  //           ...previousState.allBills
-  //         ]
-  //       }
-  //     },
-  //     onError: (err: any) => console.error(err),
-  //   })
-  // }
+  componentDidMount() {
+  
+  const BillCards= client.subscribeToMore({
+        document: BillSubscription,
+        //  variables: { repoName: params.repoName },
+        updateQuery: (prev: any, { subscriptionData }) => {
+          if (!subscriptionData.data) return prev;
+          const newFeedItem = subscriptionData.data.Bill.node;
+          return Object.assign({}, prev, {
+            allBills:  [newFeedItem, ...prev.allBills]
+          });
+        }
+      })
+     return this.setState({data:BillCards})
 
+    );
+  }
 
   render() {
     if (!this.props.data.allBills && this.props.data.loading == true) {

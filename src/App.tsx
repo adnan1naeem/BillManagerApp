@@ -9,36 +9,46 @@ import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloProvider } from 'react-apollo'
-import { SubscriptionClient, addGraphQLSubscriptions } from 'subscriptions-transport-ws';
+import { WebSocketLink } from 'apollo-link-ws';
+import { split } from 'apollo-link';
+import { getMainDefinition } from 'apollo-utilities';
+
 
 //  Api:
 //https://api-euwest.graphcms.com/v1/cjjtwi33j03e501ccj3uicdez/master
-
-
-
-const networkInterface = createNetworkInterface({ uri:
-  'https://api.graph.cool/simple/v1/cjk3wyu0c5you0107e5a48dgk' });
-  networkInterface.use([{
-    applyMiddleware(req:any, next:any) {
-      setTimeout(next, 500);
-    },
-  }]);
-  
-  const wsClient = new SubscriptionClient('wss://subscriptions.graph.cool/v1/cjk3wyu0c5you0107e5a48dgk', {
-    reconnect: true,
-  });
-  const networkInterfaceWithSubscriptions = addGraphQLSubscriptions(
-    networkInterface,
-    wsClient,
-  );
-
 const GRAPHCMS_API ='https://api.graph.cool/simple/v1/cjk3wyu0c5you0107e5a48dgk'
 
+
+
+const wsLink = new WebSocketLink({
+  uri: 'wss://subscriptions.graph.cool/v1/cjk3wyu0c5you0107e5a48dgk',
+  options: {
+    reconnect: true
+  }
+});
+const httpLink = new HttpLink({
+  uri: 'https://api.graph.cool/simple/v1/cjk3wyu0c5you0107e5a48dgk'
+});
+
+
+const link = split(
+  // split based on operation type
+  ({ query }) => {
+    const { kind, operation } = getMainDefinition(query);
+    return kind === 'OperationDefinition' && operation === 'subscription';
+  },
+  wsLink,
+  httpLink,
+);
+
+
 const client = new ApolloClient({
-  link: new HttpLink({ uri: GRAPHCMS_API }),
-  cache: new InMemoryCache(),
-  networkInterface: networkInterfaceWithSubscriptions,
+ // link: new HttpLink({ uri: GRAPHCMS_API }),
+ link,
+ cache: new InMemoryCache(),
 })
+
+
 
 
 const App = () => (
@@ -64,3 +74,6 @@ const Routes = () => {
 }
 
 export default App
+
+
+export {client};
