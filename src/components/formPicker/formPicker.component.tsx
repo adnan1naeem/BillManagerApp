@@ -18,7 +18,7 @@ const FormPicker = (props: Pickerprops) => {
     <View style={styles.container}>
       <Text style={styles.Name}>{props.label}</Text>
       <View style={styles.IconContainer}>
-        <Ionicons style={{ alignSelf: 'center' }} name="md-checkmark-circle" size={20} color="black" />
+        <Ionicons style={styles.Iconstyles} name="md-checkmark-circle" size={20} color="black" />
 
         <Picker
           selectedValue={props.value}

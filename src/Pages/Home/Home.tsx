@@ -26,27 +26,22 @@ class Home extends React.Component<Props, States> {
     this.state = {
       create: false,
       listing: false
-
     }
-
   }
 
   render() {
 
     return (
       <ScrollView>
-
         <StatusBar barStyle="dark-content" hidden={false} />
-
         <ToolbarAndroid
           title="BillManager"
           BackButton={false}
-          style={{ marginLeft: 20 }}
+          style={styles.Toolbar}
         />
-
-        <View style={{ alignItems: 'center', justifyContent: 'center', height: 600, display: 'flex', flexDirection: 'column' }}>
+        <View style={styles.ImageStyles}>
           <Image source={require("../images/bill.png")} />
-          <View style={{ width: 300, display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+          <View style={styles.buttonStyles}>
             <Button onPress={() => this.props.history.push('/create')} color="blue" title="create" />
             <Button onPress={() => this.props.history.push('/listing')} color="blue" title="lisiting" />
           </View>

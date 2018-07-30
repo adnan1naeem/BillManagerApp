@@ -8,8 +8,9 @@ export interface formInputProps {
 
   label: string,
   value?:any,
-  onChangeText:(value:any)=>void,
+  onChangeText?:(value:any)=>void,
   keyboardType?:string
+  onChange?:()=>void
 
 }
 

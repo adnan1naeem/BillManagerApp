@@ -12,5 +12,10 @@ export const styles = {
     height: 56,
     backgroundColor: '#4883da'
   },
+  IndicatorStyles: {
+    height: 200,
+    display: 'flex',
+    justifyContent: 'center'
+  }
 
 }

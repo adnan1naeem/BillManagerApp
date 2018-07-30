@@ -9,7 +9,10 @@ subscription billSubscription {
       id
       budget
       month
+      name
       unitrate
+      asset
+      site
     
     }
   }

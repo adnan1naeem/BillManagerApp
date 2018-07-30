@@ -10,7 +10,7 @@ export interface BillCardProperties {
 	Style?: any,
 }
 
-const BillCard = (props: BillCardProperties) => {
+const BillCard =(props: BillCardProperties) => {
 
 	const { name, month, budget } = props;
 

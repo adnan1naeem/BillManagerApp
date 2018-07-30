@@ -4,6 +4,7 @@ import View from "../View/View.Component";
 import Text from "../Text/Text.Component";
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Link } from 'react-router-native'
+import  {styles} from  "./style"
 
 export interface Props {
   title: string,
@@ -16,13 +17,13 @@ const ToolbarAndroidComponent = (props: Props) => {
 
   if (props.BackButton == false) {
     return (
-      <View style={{ alignItems: 'center', height: 56, display: 'flex', flexDirection: 'row', flex: 1, backgroundColor: 'blue' }}>
-       <Text style={[{ color: 'white' },props.style]}>{props.title}</Text>
+      <View style={styles.backButton}>
+       <Text style={[styles.buttonColor,props.style]}>{props.title}</Text>
       </View>
     );
   }
   return (
-    <View style={{ alignItems: 'center',height: 56, display: 'flex', flexDirection: 'row', flex: 1, backgroundColor: 'blue' }}>
+    <View style={styles.Icons}>
       <Link to="/"><MaterialCommunityIcons name="arrow-left" size={25} color="white" /></Link><Text style={{ color: 'white' }}>{props.title}</Text>
     </View>
   );

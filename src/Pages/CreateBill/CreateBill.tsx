@@ -1,7 +1,7 @@
 import React from 'react'
 import View from "../../components/View/View.Component"
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
-import { ScrollView,StatusBar,ActivityIndicator } from "react-native";
+import { ScrollView, StatusBar, ActivityIndicator } from "react-native";
 import FormInput from "../../components/formInput/formInput.component"
 import FormPicker from "../../components/formPicker/formPicker.component"
 //import Budget from "../../components/Budget/index.component"
@@ -13,33 +13,20 @@ import { withRouter } from 'react-router-native';
 import { query } from "../BillListing/query.graphql"
 import { Formik } from 'formik';
 
-export interface State {
 
-	BillName: string,
-	AssetItems: any[],
-	SiteName: string,
-	AssetName: string,
-	SiteItems: any[],
-	month: string,
-	UnitRate: number,
-	Budget: number,
-	BudgetListCounter:number,
-	BudgetList: any
-
-}
 export interface Props {
 	mutate: any,
 	history: any,
 	loading: any,
-	Name:string,
-	Site:string,
-	Asset:string,
-	month:string,
-	budget:string,
-	unitRate:string
-	
+	Name: string,
+	Site: string,
+	Asset: string,
+	month: string,
+	budget: string,
+	unitRate: string
+
 }
-class CreatBill extends React.Component<Props, State> {
+class CreatBill extends React.Component<Props, {}> {
 
 
 	constructor(props: Props) {
@@ -84,12 +71,22 @@ class CreatBill extends React.Component<Props, State> {
 			{ value: 'October', label: 'October' },
 			{ value: 'November', label: 'November' },
 			{ value: 'December', label: 'December' }
-		]
-		const { mutate } = this.props
+		];
+
+		const AssetItems = [
+			{ label: 'AC', value: 'AC' },
+			{ label: 'BULB', value: 'BULB' },
+			{ label: 'FAN', value: 'FAN' },
+		];
+		const SiteItems = [
+			{ label: 'Home', value: 'Home' },
+			{ label: 'factory', value: 'factory' },
+			{ label: 'shop', value: 'shop' }
+		];
 		return (
 			<ScrollView>
-			
-			<StatusBar barStyle = "dark-content" hidden = {false}/>
+
+				<StatusBar barStyle="dark-content" hidden={false} />
 
 				<ToolbarAndroid
 					title="Create"
@@ -97,9 +94,9 @@ class CreatBill extends React.Component<Props, State> {
 				/>
 
 				<Formik
-					initialValues={{ Name: this.props.Name, Site:this.props.Site , Asset:this.props.Asset, month: this.props.month, budget: this.props.budget, unitRate: this.props.unitRate }}
+					initialValues={{ Name: this.props.Name, Site: this.props.Site, Asset: this.props.Asset, month: this.props.month, budget: this.props.budget, unitRate: this.props.unitRate }}
 					onSubmit={values =>
-					
+
 						this.props.mutate({
 							variables: {
 								name: values.Name,
@@ -112,27 +109,27 @@ class CreatBill extends React.Component<Props, State> {
 							refetchQueries: [
 								{ query: query }
 							]
-				
+
 						}).then(() => {
-				
+
 							if (this.props.loading == true) {
 								<ActivityIndicator />
 							}
 							this.props.history.push('/listing');
 						})
-					
+
 					}>
 
 					{({ handleChange, handleSubmit, values }) => (
 
 						<View style={{ display: 'flex', flexDirection: 'column', padding: 5 }}>
 							<FormInput value={values.Name} label="BillName" onValueChange={handleChange('Name')} />
-							<FormPicker handleChange={handleChange('Site')} label="Select Site" Items={this.state.SiteItems} value={values.Site} />
-							<FormPicker handleChange={handleChange('Asset')} label="Select Device" Items={this.state.AssetItems} value={values.Asset} />
+							<FormPicker handleChange={handleChange('Site')} label="Select Site" Items={SiteItems} value={values.Site} />
+							<FormPicker handleChange={handleChange('Asset')} label="Select Device" Items={AssetItems} value={values.Asset} />
 							<FormPicker value={values.month} label="Select Month" handleChange={handleChange('month')} Items={Items} />
 							<InputLabel keyboardType='numeric' value={values.unitRate} onChangeText={handleChange('unitRate')} label="Unit Rate" />
 							<InputLabel keyboardType='numeric' value={values.budget} onChangeText={handleChange('budget')} label="Budget" />
-							 <Button onPress={handleSubmit} title="Save" />
+							<Button onPress={handleSubmit} title="Save" />
 						</View>
 					)}
 				</Formik>

@@ -15,11 +15,11 @@ export const styles = {
     display: 'flex',
     flexDirection: 'row'
   },
-  Icons:{
+  Iconstyles:{
     alignSelf: 'center' 
   },
   Picker:{
      flex: 1 
- }
-
+ },
+ 
 }
