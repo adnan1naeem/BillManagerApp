@@ -1,7 +1,7 @@
 import React from 'react'
 import View from "../../components/View/View.Component"
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
-import { ScrollView, ActivityIndicator } from "react-native";
+import { ScrollView,StatusBar,ActivityIndicator } from "react-native";
 import FormInput from "../../components/formInput/formInput.component"
 import FormPicker from "../../components/formPicker/formPicker.component"
 //import Budget from "../../components/Budget/index.component"
@@ -88,6 +88,9 @@ class CreatBill extends React.Component<Props, State> {
 		const { mutate } = this.props
 		return (
 			<ScrollView>
+			
+			<StatusBar barStyle = "dark-content" hidden = {false}/>
+
 				<ToolbarAndroid
 					title="Create"
 					BackButton={true}

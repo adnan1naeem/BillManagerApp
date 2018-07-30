@@ -1,7 +1,7 @@
 import React from 'react'
 import View from "../../components/View/View.Component"
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
-import { ScrollView, Text, ActivityIndicator } from "react-native";
+import { ScrollView, Text, ActivityIndicator,StatusBar } from "react-native";
 import BillCard from "../../components/BillCard/BillCard.Component"
 import { styles } from "./style"
 import { graphql } from 'react-apollo'
@@ -17,7 +17,7 @@ export interface Props {
   loading?: any,
   error?: any,
   bills?: any,
-  BillSubscription?:any
+  BillSubscription?: any
 }
 
 class BillListing extends React.Component<Props, State> {
@@ -26,13 +26,13 @@ class BillListing extends React.Component<Props, State> {
     super(props);
   }
 
- 
+
 
   // componentDidMount() {
   //   this.props.BillSubscription.subscribeToMore({
   //     document: BillSubscription,
   //     variables: null,
-  //     updateQuery: (previousState:any, {subscriptionData}) => {
+  //     updateQuery: (previousState: any, { subscriptionData }) => {
   //       const newPost = subscriptionData.data.Bill.node
   //       return {
   //         allBills: [
@@ -43,18 +43,18 @@ class BillListing extends React.Component<Props, State> {
   //         ]
   //       }
   //     },
-  //     onError: (err:any) => console.error(err),
+  //     onError: (err: any) => console.error(err),
   //   })
   // }
 
 
   render() {
-  if (!this.props.data.allBills && this.props.data.loading == true) {
+    if (!this.props.data.allBills && this.props.data.loading == true) {
       return (
-        <View style={{ height:200,display:'flex',justifyContent:'center'}}>
-        <ActivityIndicator  size={20}/>
-        </View> 
-    );
+        <View style={{ height: 200, display: 'flex', justifyContent: 'center' }}>
+          <ActivityIndicator size={20} />
+        </View>
+      );
     }
     if (this.props.data && this.props.data.error) {
       return <Text>!!Error fetching data</Text>
@@ -63,6 +63,7 @@ class BillListing extends React.Component<Props, State> {
     if (this.props.data && this.props.data.allBills && this.props.data.loading == false) {
       return (
         <ScrollView>
+          <StatusBar barStyle="dark-content" hidden={false} />
 
           <ToolbarAndroid
             title="BillListing"
@@ -93,6 +94,6 @@ class BillListing extends React.Component<Props, State> {
   }
 }
 
-//export default graphql(query,{name: 'BillSubscription'})(BillListing)
+//export default graphql(query, { name: 'BillSubscription' })(BillListing)
 
 export default graphql(query)(BillListing)

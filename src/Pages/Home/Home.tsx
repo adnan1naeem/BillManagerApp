@@ -36,7 +36,7 @@ class Home extends React.Component<Props, States> {
     return (
       <ScrollView>
 
-        <StatusBar />
+        <StatusBar barStyle="dark-content" hidden={false} />
 
         <ToolbarAndroid
           title="BillManager"
