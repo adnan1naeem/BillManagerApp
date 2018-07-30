@@ -1,12 +1,8 @@
 import React from 'react'
-import Image from "../../components/Image/Image.component"
-import Button from "../../components/Button/Button.Component"
-import View from "../../components/View/View.Component"
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
 import { styles } from "./style"
-import Text from "../../components/Text/Text.Component"
 import { Link, router, Redirect } from 'react-router-native';
-import { ScrollView, StatusBar } from "react-native"
+import { Button,Image,View,ScrollView, StatusBar } from "react-native"
 import { create } from 'domain';
 import { withRouter } from 'react-router-native';
 

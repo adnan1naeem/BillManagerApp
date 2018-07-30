@@ -1,7 +1,5 @@
-import { ToolbarAndroid } from 'react-native'
+import { ToolbarAndroid,View,Text } from 'react-native'
 import React from 'react'
-import View from "../View/View.Component";
-import Text from "../Text/Text.Component";
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Link } from 'react-router-native'
 import  {styles} from  "./style"
@@ -13,8 +11,6 @@ export interface Props {
 }
 
 const ToolbarAndroidComponent = (props: Props) => {
-
-
   if (props.BackButton == false) {
     return (
       <View style={styles.backButton}>

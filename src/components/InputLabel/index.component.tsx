@@ -1,6 +1,4 @@
-import View from "../View/View.Component"
-import TextInput from "../TextInput/TextInput.component"
-import { Text } from "react-native"
+import { Text,View,TextInput } from "react-native"
 import { styles } from "./style"
 import React from 'react'
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import View from "../../components/View/View.Component"
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
 import { ScrollView, StatusBar, ActivityIndicator } from "react-native";
 import FormInput from "../../components/formInput/formInput.component"
@@ -12,6 +11,7 @@ import { Mutationquery } from "./query.graphql"
 import { withRouter } from 'react-router-native';
 import { query } from "../BillListing/query.graphql"
 import { Formik } from 'formik';
+import { View } from 'react-native';
 
 
 export interface Props {

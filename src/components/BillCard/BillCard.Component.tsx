@@ -1,6 +1,5 @@
 import React from 'react'
-import View from "../View/View.Component";
-import Text from "../Text/Text.Component";
+import {View,Text} from "react-native";
 import { style } from "./style"
 
 export interface BillCardProperties {

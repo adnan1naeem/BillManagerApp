@@ -1,5 +1,4 @@
 import React from 'react'
-import View from "../../components/View/View.Component"
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
 import { ScrollView, Text, ActivityIndicator, StatusBar } from "react-native";
 import BillCard from "../../components/BillCard/BillCard.Component"
@@ -7,6 +6,7 @@ import { styles } from "./style"
 import { graphql } from 'react-apollo'
 import { query } from "./query.graphql"
 import { BillSubscription } from "./Subscriptionquery.graphql"
+import { View } from 'react-native'
 
 export interface State {
 	data?: any,

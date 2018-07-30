@@ -1,5 +1,4 @@
-import View from "../View/View.Component"
-import { Text, Picker } from "react-native"
+import { Text, Picker ,View} from "react-native"
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import {styles} from  "./style"
