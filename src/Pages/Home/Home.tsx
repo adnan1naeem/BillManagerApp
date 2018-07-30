@@ -36,7 +36,7 @@ class Home extends React.Component<Props, States> {
           style={styles.Toolbar}
         />
         <View style={styles.ImageStyles}>
-          <Image source={require("../images/bill.png")} />
+          <Image source={require("./images/bill.png")} />
           <View style={styles.buttonStyles}>
             <Button onPress={() => this.props.history.push('/create')} color="blue" title="create" />
             <Button onPress={() => this.props.history.push('/listing')} color="blue" title="lisiting" />
