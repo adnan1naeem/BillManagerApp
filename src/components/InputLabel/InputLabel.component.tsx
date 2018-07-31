@@ -5,11 +5,8 @@ import React from 'react'
 export interface formInputProps {
 
   label: string,
-  value?:any,
-  onChangeText?:(value:any)=>void,
-  keyboardType?:string
-  onChange?:()=>void
-
+  value:string,
+  onChangeText:(value:string)=>void,
 }
 
 const InputLabelComponent = (props: formInputProps) => {
@@ -17,7 +14,7 @@ const InputLabelComponent = (props: formInputProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.Name}>{props.label}</Text>
-      <TextInput style={styles.Input}  onChangeText={props.onChangeText}   value={props.value}  {...props} />
+      <TextInput style={styles.Input} onChangeText={props.onChangeText}   value={props.value}  {...props} />
     </View>
 
   );

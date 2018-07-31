@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import ToolbarAndroid from './ToolbarAndroid.component';
+import ToolbarAndroid from './AppBar.component';
 import { withKnobs, text} from '@storybook/addon-knobs/react';
 import {View,StyleSheet} from 'react-native';
 import { ScrollView } from "react-native";

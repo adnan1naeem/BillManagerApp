@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import BillCard from './BillCard.Component';
+import BillCard from './BillCard.component';
 import { withKnobs} from '@storybook/addon-knobs/react';
 import {View} from 'react-native';
 

@@ -6,7 +6,7 @@ export interface BillCardProperties {
 	name: string,
 	month: string,
 	budget: number,
-	Style?: any,
+	style?: object,
 }
 
 const BillCard =(props: BillCardProperties) => {

@@ -1,42 +1,34 @@
 import React from 'react'
 import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
 import { ScrollView, Text, ActivityIndicator, StatusBar } from "react-native";
-import BillCard from "../../components/BillCard/BillCard.Component"
+import BillCard from "../../components/BillCard/BillCard.component"
 import { styles } from "./style"
 import { graphql } from 'react-apollo'
 import { query } from "./query.graphql"
 import { BillSubscription } from "./Subscriptionquery.graphql"
 import { View } from 'react-native'
 
-export interface State {
-	data?: any,
+export interface dataProps {
+	loading:boolean,
+	allBills:any[],
+	subscribeToMore:(event:any)=>void
 }
-
 export interface Props {
-	data?: any,
-	loading?: any,
-	error?: any,
-	bills?: any,
-	BillSubscription?: any
+
+	data:dataProps 
 }
 
-class BillListing extends React.Component<Props, State> {
+class BillListing extends React.Component<Props, {}> {
 
 	constructor(props: Props) {
 		super(props);
-
-		this.state = {
-			data: []
-		}
+	
 	}
-
 	componentDidMount() {
 
 		this.props.data.subscribeToMore({
 			document: BillSubscription,
 			updateQuery: (prev: any, { subscriptionData }: any) => {
-				console.log("prev", prev);
-				console.log("subscription", subscriptionData);
 
 				if (!subscriptionData.data) return prev;
 				const newFeedItem = subscriptionData.data.Bill.node;

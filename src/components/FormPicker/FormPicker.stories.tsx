@@ -1,16 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import FormInput from './formInput.component';
+import FormPicker from './FormPicker.component';
 import { withKnobs, text,} from '@storybook/addon-knobs/react';
 import {View} from 'react-native';
 
 
-storiesOf('FormInput', module)
+storiesOf('FormPicker', module)
   .addDecorator(getStory => <View>{getStory()}</View>)
   .addDecorator(withKnobs )
 
-  .add('FormInput story', () => (
-  <FormInput  label="adnan"  onValueChange={()=>'string'}/>
+  .add('FormPicker story', () => (
+  <FormPicker label="Budget" handleChange={(event:any)=>'string'}    Items={[{label:'AC',value:'AC'},{label:'Bulb',value:'Bulb'}] } />
   ))
 
 
