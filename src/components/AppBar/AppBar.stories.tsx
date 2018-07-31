@@ -17,23 +17,30 @@ storiesOf('Appbar ', module)
   .addDecorator(getStory => <View>{getStory()}</View>)
   .addDecorator(withKnobs )
   
-.add('withour back button Appbar story', () => (
- 
- <ScrollView>
-  <ToolbarAndroid
-  title="BillManager"
-  BackButton={false}
-  />
-  </ScrollView>
-))
 
 
-.add('Backbutton story', () => (
+
+.add(' back button Appbar story', () => (
  
   <ScrollView>
    <ToolbarAndroid
    title="BillManager"
+   BackButton={false}
    />
    </ScrollView>
  ))
-  
+
+
+.add('without  back button Appbar story', () => (
+ 
+  <ScrollView>
+   <ToolbarAndroid
+   title="BillManager"
+   BackButton={true}
+   />
+   </ScrollView>
+ ))
+
+
+
+

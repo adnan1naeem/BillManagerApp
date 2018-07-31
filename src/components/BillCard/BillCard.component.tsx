@@ -43,4 +43,4 @@ const BillCard =(props: BillCardProperties) => {
 	);
 };
 
-export default BillCard;
+export default BillCard as React.ComponentType<any>;
