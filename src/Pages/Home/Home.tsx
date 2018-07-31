@@ -1,5 +1,5 @@
 import React from 'react'
-import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
+import ToolbarAndroid from "../../components/AppBar/AppBar.component"
 import { styles } from "./style"
 import { Link, router, Redirect } from 'react-router-native';
 import { Button,Image,View,ScrollView, StatusBar } from "react-native"

@@ -1,5 +1,5 @@
 import React from 'react'
-import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
+import ToolbarAndroid from "../../components/AppBar/AppBar.component"
 import { ScrollView, Text, ActivityIndicator, StatusBar } from "react-native";
 import BillCard from "../../components/BillCard/BillCard.component"
 import { styles } from "./style"

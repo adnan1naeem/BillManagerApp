@@ -1,8 +1,8 @@
 import React from 'react'
-import ToolbarAndroid from "../../components/ToolBarAndroid/ToolbarAndroid.component"
+import ToolbarAndroid from "../../components/AppBar/AppBar.component"
 import { ScrollView, StatusBar, ActivityIndicator } from "react-native";
-import FormInput from "../../components/formInput/formInput.component"
-import FormPicker from "../../components/formPicker/formPicker.component"
+import FormInput from "../../components/FormInput/FormInput.component"
+import FormPicker from "../../components/FormPicker/FormPicker.component"
 //import Budget from "../../components/Budget/index.component"
 import InputLabel from "../../components/InputLabel/InputLabel.component"
 import { Mutation, graphql } from "react-apollo";

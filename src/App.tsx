@@ -3,7 +3,7 @@ import BillListing from "./Pages/BillListing/BillListing"
 import CreateBill from "./Pages/CreateBill/CreateBill"
 import { NativeRouter, BackButton, Route } from 'react-router-native';
 import React from 'react'
-import View from './components/View/View.Component'
+import {View} from 'react-native'
 import { ApolloProvider } from 'react-apollo'
 import { client } from "./ApolloConfigurations"
 
