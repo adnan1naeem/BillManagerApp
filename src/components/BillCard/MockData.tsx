@@ -1,20 +1,11 @@
-const MockData = [
+export const Data =
   {
-    month: "Jan",
-    budget: 2000,
-    name:"Bills"
-  },
-  {
-    month: "Jan",
-    budget: 2000,
-    name:"Bills"
-  },{
     month: "Jan",
     budget: 2000,
     name:"Bills"
   }
   
-]
+
 
 
 

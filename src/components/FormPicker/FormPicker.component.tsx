@@ -5,7 +5,7 @@ import { styles } from "./style"
 export interface Pickerprops {
 
   Items: any[],
-  handleChange?: (event: any) => void
+  handleChange: (event: any) => void
   value?: string,
   label: string,
   IconSize?: number,

@@ -1,20 +1,11 @@
-const MockData = [
-  {
-    month: "Jan",
-    budget: 2000,
-    name:"Bills"
-  },
-  {
-    month: "Jan",
-    budget: 2000,
-    name:"Bills"
-  },{
-    month: "Jan",
-    budget: 2000,
-    name:"Bills"
-  }
-  
-]
+export const Data = {
+
+  IconColor: "black",
+  IconName: "arrow-left",
+  IconSize: 20,
+  label:"ADNANA",
+  onValueChange:()=>'string'
+}
 
 
 

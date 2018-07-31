@@ -29,7 +29,7 @@ const FormInput = (props: formInputProps) => {
 
   );
 }
-export default FormInput;
+export default FormInput as React.ComponentType<any>;
 
 
 

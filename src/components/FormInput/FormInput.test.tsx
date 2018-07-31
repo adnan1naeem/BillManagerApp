@@ -1,22 +1,73 @@
 import * as React from 'react'
-import { shallow,configure } from 'enzyme';
-import BillCard from  "./BillCard.component";
+import { shallow, configure } from 'enzyme';
+import FormInput from "./FormInput.component";
 import ReactSixteenAdapter from 'enzyme-adapter-react-16';
+
+import {Data} from "./MockData";
 
 // it('renders without crashing', () => {
 //   const rendered = renderer.create(<App />).toJSON()
 //   expect(rendered).toMatchSnapshot()
 //   expect(rendered).toBeTruthy()
 // })
-configure({ adapter: new ReactSixteenAdapter() })
+//configure({ adapter: new ReactSixteenAdapter() })
 
 
-describe('BillCard Testcases', () => {
+describe('FormInput Testcases', () => {
+
   it('should render component', () => {
-   expect(<BillCard name="Bills" month="Jan" budget={2000} />).toBeTruthy();
+    expect(<FormInput
+      label={Data.label}
+      onValueChange={Data.onValueChange}/>).toBeTruthy();
   });
 
-  it('should throw error as required prop Budget is missing', () => {
-    expect(()=>    <BillCard name="Bills" month="Jan"  /> ).toThrow()
-   });
+  it('should throw error as required prop onValueChange is missing', () => {
+    let error
+    try {
+      shallow(<FormInput
+        title={Data.label}/>)
+    } catch (e) {
+      error = e
+    }
+    expect(error).toBeDefined()
+  });
+
+
+  it('should throw error as required prop title is missing', () => {
+    let error
+    try {
+      shallow(<FormInput
+      title={Data.label}
+        />)
+    } catch (e) {
+      error = e
+    }
+    expect(error).toBeDefined()
+  });
+
+  it('should throw error as required prop title is undefined', () => {
+    let error
+    try {
+      shallow(<FormInput
+      title={undefined}
+        onValueChange={Data.onValueChange}/>)
+    } catch (e) {
+      error = e
+    }
+    expect(error).toBeDefined()
+  });
+
+  it('should throw error as required prop onValueChange is undefined', () => {
+    let error
+    try {
+      shallow(<FormInput
+      title={Data.label}
+        onValueChange={undefined}/>)
+    } catch (e) {
+      error = e
+    }
+    expect(error).toBeDefined()
+  });
+
+
 });

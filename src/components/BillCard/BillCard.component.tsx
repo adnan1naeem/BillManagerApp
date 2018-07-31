@@ -1,15 +1,15 @@
 import React from 'react'
-import {View,Text} from "react-native";
+import { View, Text } from "react-native";
 import { style } from "./style"
 
 export interface BillCardProperties {
-	name: string,
-	month: string,
-	budget: number,
-	style?: object,
+	name: string;
+	month: string;
+	budget: number;
+	style?: object;
 }
 
-const BillCard =(props: BillCardProperties) => {
+const BillCard = (props: BillCardProperties) => {
 
 	const { name, month, budget } = props;
 
@@ -43,4 +43,4 @@ const BillCard =(props: BillCardProperties) => {
 	);
 };
 
-export default BillCard as React.ComponentType<any>;
+export default BillCard
