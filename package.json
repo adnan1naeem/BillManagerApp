@@ -13,15 +13,21 @@
     "@types/react": "^16.4.6",
     "@types/react-native": "^0.56.4",
     "awesome-typescript-loader": "^5.2.0",
+    "enzyme": "^3.3.0",
     "jest": "^23.4.2",
     "jest-expo": "~27.0.0",
+    "react": "16.3.1",
     "react-dom": "^16.4.1",
     "react-intl": "^2.4.0",
     "react-native-scripts": "^1.14.0",
     "react-native-typescript-transformer": "^1.2.10",
+    "react-navigation": "^2.9.1",
     "react-test-renderer": "16.3.1",
     "storybook-addon-intl": "^2.3.0",
-    "ts-jest": "^23.0.1"
+    "ts-jest": "^23.0.1",
+    "tslib": "^1.9.3",
+    "typescript": "2.9.2",
+    "watchman": "^1.0.0"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -30,16 +36,13 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "storybook": "storybook start -p 7007",
-    "test": "jest",
-    "typescript": "2.9.2",
-    "tslib": "^1.9.3",
-    "watchman": "^1.0.0",
-    "react": "16.3.1",
-    "react-navigation": "^2.9.1"
+    "test": "jest"
   },
   "jest": {
     "preset": "jest-expo",
+
     "transform": {
+      "^.+\\.js$": "babel-jest",
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testEnvironment": "node",
@@ -68,6 +71,7 @@
   "dependencies": {
     "@types/enzyme": "^3.1.12",
     "@types/enzyme-adapter-react-16": "^1.0.2",
+    "@types/jest": "^23.3.1",
     "apollo-cache-inmemory": "^1.2.6",
     "apollo-client": "^2.3.7",
     "apollo-link-http": "^1.5.4",
@@ -79,6 +83,7 @@
     "formik": "^1.0.2",
     "graphql-tag": "^2.9.2",
     "history": "^4.7.2",
+    "jest-react-native": "^18.0.0",
     "jsdom": "^11.12.0",
     "react-apollo": "^2.1.9",
     "react-native": "^0.55.4",

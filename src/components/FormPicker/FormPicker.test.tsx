@@ -3,7 +3,7 @@ import { shallow, configure } from 'enzyme';
 import FormPicker from "./FormPicker.component";
 import ReactSixteenAdapter from 'enzyme-adapter-react-16';
 
-import {Data} from "./MockData";
+import { Data } from "./MockData";
 
 // it('renders without crashing', () => {
 //   const rendered = renderer.create(<App />).toJSON()
@@ -20,9 +20,11 @@ describe('FormPicker Testcases', () => {
       label={Data.label}
       Items={Data.Items}
       handleChange={Data.onValueChange}
-      />
+    />
     ).toBeTruthy();
   });
+});
+describe('FormPicker prop are missing  Testcases', () => {
 
   it('should throw error as required prop Items is missing', () => {
     let error
@@ -30,7 +32,7 @@ describe('FormPicker Testcases', () => {
       shallow(<FormPicker
         label={Data.label}
         handleChange={Data.onValueChange}
-        />)
+      />)
     } catch (e) {
       error = e
     }
@@ -45,7 +47,7 @@ describe('FormPicker Testcases', () => {
         label={Data.label}
         Items={Data.Items}
 
-        />)
+      />)
     } catch (e) {
       error = e
     }
@@ -58,23 +60,24 @@ describe('FormPicker Testcases', () => {
       shallow(<FormPicker
         Items={Data.Items}
         handleChange={Data.onValueChange}
-        />)
+      />)
     } catch (e) {
       error = e
     }
     expect(error).toBeDefined()
   });
- 
+});
 
+describe('FormPicker prop are null  Testcases', () => {
 
   it('should throw error as required prop label is null', () => {
     let error
     try {
       shallow(
-      <FormPicker
-        Items={Data.Items}
-        handleChange={Data.onValueChange}
-        label={null}
+        <FormPicker
+          Items={Data.Items}
+          handleChange={Data.onValueChange}
+          label={null}
         />
       )
     } catch (e) {
@@ -89,10 +92,10 @@ describe('FormPicker Testcases', () => {
     let error
     try {
       shallow(
-      <FormPicker
-        Items={null}
-        handleChange={Data.onValueChange}
-        label={Data.label}
+        <FormPicker
+          Items={null}
+          handleChange={Data.onValueChange}
+          label={Data.label}
         />
       )
     } catch (e) {
@@ -100,16 +103,19 @@ describe('FormPicker Testcases', () => {
     }
     expect(error).toBeDefined()
   });
+});
 
+
+describe('FormPicker prop are undefined  Testcases', () => {
 
   it('should throw error as required prop Items are undefined', () => {
     let error
     try {
       shallow(
-      <FormPicker
-        Items={undefined}
-        handleChange={Data.onValueChange}
-        label={undefined}
+        <FormPicker
+          Items={undefined}
+          handleChange={Data.onValueChange}
+          label={undefined}
         />
       )
     } catch (e) {
@@ -117,6 +123,6 @@ describe('FormPicker Testcases', () => {
     }
     expect(error).toBeDefined()
   });
- 
+
 
 });

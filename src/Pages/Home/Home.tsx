@@ -2,12 +2,12 @@ import React from 'react'
 import ToolbarAndroid from "../../components/AppBar/AppBar.component"
 import { styles } from "./style"
 import { Link, router, Redirect } from 'react-router-native';
-import { Button,Image,View,ScrollView, StatusBar } from "react-native"
+import { Button, Image, View, ScrollView, StatusBar } from "react-native"
 import { create } from 'domain';
 import { withRouter } from 'react-router-native';
 
-export interface RouterProps{
-	push:(route:string)=>void
+export interface RouterProps {
+  push: (route: string) => void
 }
 export interface Props {
   history: RouterProps
@@ -45,7 +45,6 @@ class Home extends React.Component<Props, States> {
           </View>
         </View>
       </ScrollView>
-
     );
   }
 }

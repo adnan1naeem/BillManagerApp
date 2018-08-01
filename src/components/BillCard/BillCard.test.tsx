@@ -13,6 +13,10 @@ describe('BillCard Testcases', () => {
     expect(<BillCard name={Data.name} month={Data.month} budget={Data.budget} />).toBeDefined();
   });
 
+});
+
+describe('BillCard missing Props test ', () => {
+
   it('should throw error as required prop Budget is missing', () => {
     let error
     try {
@@ -45,7 +49,10 @@ describe('BillCard Testcases', () => {
     expect(error).toBeDefined()
   });
 
+});
 
+
+describe('BillCard  Props are null test ', () => {
 
   it('should throw error as required prop budget is null', () => {
     let error
@@ -79,6 +86,10 @@ describe('BillCard Testcases', () => {
     expect(error).toBeDefined()
   });
 
+});
+
+
+describe('BillCard  Props are null undefined ', () => {
 
   it('should throw error as required prop name is undefined', () => {
     let error
@@ -134,7 +145,7 @@ describe('BillCard Testcases', () => {
     }
     expect(error).toBeDefined()
   });
-
+});
 
   // it('should throw error as  BllCard', () => {
   //     const wrapper=shallow(<BillCard name={Data.name} month={Data.month} budget={undefined} />)
@@ -144,4 +155,3 @@ describe('BillCard Testcases', () => {
 
 
 
-});
