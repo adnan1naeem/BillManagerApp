@@ -1,11 +1,11 @@
 export const Data = {
 
   IconColor: "black",
-  IconName: "arrow-left",
+  IconName: "md-checkmark-circle",
   IconSize: 20,
-  label: "ADNANA",
+  label: "label",
   onValueChange: () => 'string',
-  Items: [{ label: 'Name', value: 'Name' }]
+  Items: [{ label: 'AC', value: 'AC' }, { label: 'bulb', value: 'bulb' }]
 }
 
 

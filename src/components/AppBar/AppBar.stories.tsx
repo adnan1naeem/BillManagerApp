@@ -19,7 +19,7 @@ storiesOf('Appbar ', module)
     <ScrollView>
       <AppBar
         title={text('title', 'BillManager')}
-        BackButton={boolean('backbutton', true)}
+        BackButton={boolean('backbutton', Data.backbuttonTrue)}
       />
     </ScrollView>
   ))
@@ -30,7 +30,7 @@ storiesOf('Appbar ', module)
     <ScrollView>
       <AppBar
         title={text('title', 'BillManager')}
-        BackButton={boolean('backbutton', false)}
+        BackButton={boolean('backbutton', Data.backbuttonfalse)}
         style={Data.style}
       />
     </ScrollView>

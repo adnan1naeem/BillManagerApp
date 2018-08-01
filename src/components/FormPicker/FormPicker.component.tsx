@@ -35,35 +35,32 @@ export interface Pickerprops {
 	 * IconSize props for adding Icon Size 
 	 * 
 	 */
-  IconSize?: number,
+  IconSize: number,
 
 
   /**
 	 * IconColor props for adding Icon Color 
 	 * 
 	 */
-  IconColor?: string
+  IconColor: string
 
 
   /**
 	 * IconName props for adding IconName 
 	 * 
 	 */
-  IconName?: string
+  IconName: string
 }
 
 
 const FormPicker = (props: Pickerprops) => {
 
-  const name = props.IconName ? props.IconName : 'filing';
-  const size = props.IconSize ? props.IconSize : 20;
-  const color = props.IconColor ? props.IconColor : 'black';
 
   return (
     <View style={styles.container}>
       <Text style={styles.Name}>{props.label}</Text>
       <View style={styles.IconContainer}>
-        <Ionicons style={styles.Icon} name="md-checkmark-circle" size={22} color="green" />
+        <Ionicons style={styles.Icon} name={props.IconName} size={props.IconSize} color={props.IconColor} />
 
         <Picker
           selectedValue={props.value}

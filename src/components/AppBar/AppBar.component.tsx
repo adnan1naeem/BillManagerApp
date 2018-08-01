@@ -25,7 +25,7 @@ export interface Props {
   style?: object,
 }
 
-const ToolbarAndroidComponent = (props: Props) => {
+const AppBar = (props: Props) => {
   if (props.BackButton == false) {
     return (
       <View style={styles.backButton}>
@@ -40,6 +40,6 @@ const ToolbarAndroidComponent = (props: Props) => {
   );
 }
 
-export default ToolbarAndroidComponent;
+export default AppBar;
 
 

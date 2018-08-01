@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { 	NativeRouter } from 'react-router-native';
-
+import { NativeRouter } from 'react-router-native';
+import { client } from ".././src/ApolloConfigurations"
 import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure } from '@storybook/react-native';
 import { ApolloClient } from 'apollo-client'
@@ -10,30 +10,18 @@ import { ApolloProvider } from 'react-apollo'
 
 // import stories
 configure(() => {
-  require('../src/components/Button/Button.stories');
-    require('../src/components/Text/Text.stories');
-    require('../src/components/Image/index.stories');
-    require('../src/components/TextInput/TextInput.stories');
-    require('../src/components/ToolBarAndroid/index.stories');
-    require('../src/components/BillCard/index.stories');
-    require('../src/components/formInput/index.stories');
-    require('../src/components/formPicker/index.stories');
-    require('../src/components/InputLabel/index.stories');
-    require('../src/components/Budget/index.stories');
-    require('../src/Pages/Home/index.stories');
-    require('../src/Pages/CreateBill/index.stories');
-    require('../src/Pages/BillListing/index.stories');
-  
-  
+  require('../src/components/AppBar/AppBar.stories');
+  require('../src/components/BillCard/BillCard.stories');
+  require('../src/components/FormInput/FormInput.stories');
+  require('../src/components/FormPicker/FormPicker.stories');
+  require('../src/components/InputLabel/InputLabel.stories');
+  require('../src/Pages/Home/Home.stories');
+  require('../src/Pages/CreateBill/CreateBill.stories');
+  require('../src/Pages/BillListing/BillListing.stories');
+
+
 }, module);
 
-
-const GRAPHCMS_API = 'https://api-euwest.graphcms.com/v1/cjjtwi33j03e501ccj3uicdez/master'
-
-const client = new ApolloClient({
-  link: new HttpLink({ uri: GRAPHCMS_API }),
-  cache: new InMemoryCache()
-})
 
 
 const StorybookUIRoot = getStorybookUI({ port: 7007, onDeviceUI: true });

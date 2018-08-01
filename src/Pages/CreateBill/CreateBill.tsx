@@ -139,10 +139,9 @@ const CreatBill = (props: Props) => {
 				{({ handleChange, handleSubmit, values }) => (
 
 					<View style={styles.Container}>
-						<FormInput value={values.Name} label="BillName" onValueChange={handleChange('Name')} />
-						<FormPicker handleChange={handleChange('Site')} label="Select Site" Items={SiteList} value={values.Site} />
-						<FormPicker handleChange={handleChange('Asset')} label="Select Device" Items={AssetList} value={values.Asset} />
-						<FormPicker value={values.month} label="Select Month" handleChange={handleChange('month')} Items={DateList} />
+						<FormInput IconColor="green" IconSize={22} IconName="md-checkmark-circle" value={values.Name} label="BillName" onValueChange={handleChange('Name')} />
+						<FormPicker IconSize={22} IconName="md-checkmark-circle" IconColor="green" handleChange={handleChange('Asset')} label="Select Device" Items={AssetList} value={values.Asset} />
+						<FormPicker IconSize={22} IconName="md-checkmark-circle" IconColor="green" value={values.month} label="Select Month" handleChange={handleChange('month')} Items={DateList} />
 						<InputLabel keyboardType='numeric' value={values.unitRate} onChangeText={handleChange('unitRate')} label="Unit Rate" />
 						<InputLabel keyboardType='numeric' value={values.budget} onChangeText={handleChange('budget')} label="Budget" />
 						<Button onPress={handleSubmit} title="Save" />

@@ -4,46 +4,44 @@ import BillCard from './BillCard.component';
 import { withKnobs } from '@storybook/addon-knobs/react';
 import { View } from 'react-native';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
-
+import { Data } from "./MockData"
 
 const stories = storiesOf('Card', module)
   .addDecorator(withKnobs)
   .addDecorator(getStory => <View style={{ backgroundColor: 'grey' }}>{getStory()}</View>)
   .add('Card Story', () => (
     <BillCard
-      name={text('name', 'ADNAN')}
-      month={text('month', 'June')}
-      budget={text('budget', 2222)}
+      name={text('name', Data.name)}
+      month={text('month', Data.month)}
+      budget={text('budget', Data.budget)}
     />
   ))
 
   .add('Card Story  budget missing prop', () => (
     <BillCard
-      name={text('name', 'ADNAN')}
-      month={text('month', 'June')}
+      name={text('name', Data.name)}
+      month={text('month', Data.month)}
     />
   ))
 
   .add('Card Story name prop is missing', () => (
     <BillCard
-      month={text('month', 'June')}
-      budget={text('month', 22222)}
+      month={text('month', Data.month)}
+      budget={text('budget', Data.budget)}
     />
   ))
 
 
   .add('Card Story month prop is missing', () => (
     <BillCard
-      name={text('name', 'ADNAN')}
-      budget={text('month', 22222)}
+      name={text('name', Data.name)}
+      budget={text('budget', Data.budget)}
     />
   ))
 
 
   .add('Card Story with no prop', () => (
-    <BillCard
-
-    />
+    <BillCard />
   ))
 
 

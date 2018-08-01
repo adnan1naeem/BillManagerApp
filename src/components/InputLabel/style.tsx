@@ -14,7 +14,7 @@ const styles = {
     // marginLeft: 20
   },
   Input: {
-    width: 300,
+
     height: 30,
     color: '#4381FF',
     borderBottomColor: '#4381FF'

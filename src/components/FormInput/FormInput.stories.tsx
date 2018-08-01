@@ -4,27 +4,22 @@ import FormInput from './FormInput.component';
 import { withKnobs, text, } from '@storybook/addon-knobs/react';
 import { View } from 'react-native';
 
-
+import { Data } from "./MockData"
 storiesOf('FormInput', module)
   .addDecorator(getStory => <View>{getStory()}</View>)
   .addDecorator(withKnobs)
 
   .add('FormInput story', () => (
     <FormInput
-      underlineColorAndroid='black'
-      label="Label"
-      onValueChange={() => 'string'}
+      label={Data.label}
+      onValueChange={Data.onValueChange}
+      IconColor={Data.IconColor}
+      IconSize={Data.IconSize}
+      IconName={Data.IconName}
     />
   ))
 
 
-  .add('FormIut story', () => (
-    <FormInput
-      underlineColorAndroid='black'
-      label="Label"
-      onValueChange={() => 'string'}
-    />
-  ))
 
 
 
