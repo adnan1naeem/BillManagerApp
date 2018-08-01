@@ -1,45 +1,40 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import ToolbarAndroid from './AppBar.component';
-import { withKnobs, text} from '@storybook/addon-knobs/react';
-import {View,StyleSheet} from 'react-native';
+import AppBar from './AppBar.component';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs/react';
+import { View, StyleSheet } from 'react-native';
 import { ScrollView } from "react-native";
+import { Data } from "./MockData"
 
-var styles = StyleSheet.create({
-	toolbar: {
-		height: 56,
-    backgroundColor: '#4883da',
-    color:'white'
-  },
-});
 
 storiesOf('Appbar ', module)
   .addDecorator(getStory => <View>{getStory()}</View>)
-  .addDecorator(withKnobs )
-  
+  .addDecorator(withKnobs)
 
 
 
-.add(' back button Appbar story', () => (
- 
-  <ScrollView>
-   <ToolbarAndroid
-   title="BillManager"
-   BackButton={false}
-   />
-   </ScrollView>
- ))
+
+  .add(' back button Appbar story', () => (
+
+    <ScrollView>
+      <AppBar
+        title={text('title', 'BillManager')}
+        BackButton={boolean('backbutton', true)}
+      />
+    </ScrollView>
+  ))
 
 
-.add('without  back button Appbar story', () => (
- 
-  <ScrollView>
-   <ToolbarAndroid
-   title="BillManager"
-   BackButton={true}
-   />
-   </ScrollView>
- ))
+  .add('without  back button Appbar story', () => (
+
+    <ScrollView>
+      <AppBar
+        title={text('title', 'BillManager')}
+        BackButton={boolean('backbutton', false)}
+        style={Data.style}
+      />
+    </ScrollView>
+  ))
 
 
 

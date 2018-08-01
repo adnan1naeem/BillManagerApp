@@ -9,7 +9,8 @@ export const styles = {
     backgroundColor: 'blue'
   },
   buttonColor: {
-    color: 'white'
+    color: 'white',
+    flex: 1
   },
   Icons: {
     alignItems: 'center',
@@ -18,5 +19,9 @@ export const styles = {
     flexDirection: 'row',
     flex: 1,
     backgroundColor: 'blue'
+  },
+  titlecolor: {
+    color: 'white'
+
   }
 }

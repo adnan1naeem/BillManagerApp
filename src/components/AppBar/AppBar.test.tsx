@@ -1,52 +1,24 @@
 import * as React from 'react'
-// import { shallow,configure } from 'enzyme';
+import { shallow, configure, mount } from 'enzyme';
 import AppBar from "./AppBar.component";
-// import ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
+import { Data } from "./MockData";
 
-// // it('renders without crashing', () => {
-// //   const rendered = renderer.create(<App />).toJSON()
-// //   expect(rendered).toMatchSnapshot()
-// //   expect(rendered).toBeTruthy()
-// // })
-// //configure({ adapter: new ReactSixteenAdapter() })
+configure({ adapter: new Adapter() })
+
+describe('', () => {
 
 
-describe('AppBar Testcases', () => {
-
-  it('should render component', () => {
-    expect(<AppBar BackButton={true} title="ADNAN" />).toBeTruthy();
-  });
-
-  it('should throw error as required prop title is missing', () => {
-    let error
-    try {
-      shallow(<AppBar BackButton={true} />)
-    } catch (e) {
-      error = e
-    }
-    expect(error).toBeDefined()
+  test('renders correctly', () => {
+    shallow(<AppBar BackButton={Data.backbuttonTrue} title={Data.title} />);
   });
 
 
-  it('should throw error as required prop title is null', () => {
-    let error
-    try {
-      shallow(<AppBar title={null} />)
-    } catch (e) {
-      error = e
-    }
-    expect(error).toBeDefined()
+  test('renders correctly', () => {
+    const tree = renderer.create(<AppBar BackButton={Data.backbuttonTrue} title={Data.title} />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
-
-  it('should throw error as required prop title is undefined', () => {
-    let error
-    try {
-      shallow(<AppBar title={undefined} />)
-    } catch (e) {
-      error = e
-    }
-    expect(error).toBeDefined()
-  });
 });
 

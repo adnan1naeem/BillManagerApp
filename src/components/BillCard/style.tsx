@@ -18,7 +18,7 @@ export const style = {
 		paddingTop: 10,
 		paddingBottom: 10
 	},
-	body:{
+	body: {
 
 		backgroundColor: 'white'
 	},
@@ -43,7 +43,7 @@ export const style = {
 	},
 	consumedLabel: {
 		color: 'white',
-		fontSize: 12
+		fontSize: 12,
 	},
 	budgetContanier: {
 		display: 'flex',
@@ -52,6 +52,7 @@ export const style = {
 	budget: {
 		color: 'white',
 		fontSize: 20,
+		flex: 1
 	},
 
 	lowerView: {
@@ -72,6 +73,8 @@ export const style = {
 	},
 	month: {
 		color: '#0093FF',
-		fontSize: 12
+		fontSize: 12,
+		flex: 1
+
 	},
 };

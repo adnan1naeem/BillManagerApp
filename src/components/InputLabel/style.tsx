@@ -1,13 +1,27 @@
-export const styles = {
+const styles = {
 
   container: {
     display: 'flex',
-    flexDirection: 'column'
-  },
-  Input: {
-    flex: 1
+    flexDirection: 'column',
   },
   Name: {
-    marginLeft: 20
   },
+  Icon: {
+    // marginTop: 10
+  },
+  label: {
+
+    // marginLeft: 20
+  },
+  Input: {
+    width: 300,
+    height: 30,
+    color: '#4381FF',
+    borderBottomColor: '#4381FF'
+  },
+  containers: {
+    flexDirection: 'row',
+    display: 'flex'
+  }
 }
+export default styles

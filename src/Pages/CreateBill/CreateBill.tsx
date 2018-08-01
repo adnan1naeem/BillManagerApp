@@ -19,17 +19,81 @@ export interface RouterProps {
 
 
 export interface MutationProps {
+
+
+  /**
+	 * props for variables of mutation 
+	 *  
+	 */
 	variables: any,
 }
 export interface Props {
+
+
+  /**
+	 * props of mutation of data
+	 * 
+	 */
 	mutate: any,
+
+
+  /**
+	 *  history props for routing 
+	 * 
+	 */
 	history: RouterProps,
+
+
+  /**
+	 *  loading props  check for data posting 
+	 * 
+	 */
+
 	loading: boolean,
+
+	/**
+	 *  Name props  check for adding BillName
+	 * 
+	 */
+
 	Name: string,
+
+
+
+	/**
+	 *  Name props  check for adding SiteName for Bill
+	 * 
+	 */
+
 	Site: string,
+
+	/**
+	 *  Name props  check for adding AssetName for Bill
+	 * 
+	 */
+
 	Asset: string,
+
+
+	/**
+	 *  Name props  check for adding AssetName for Bill
+	 * 
+	 */
+
 	month: string,
+
+	/**
+	 *  budget props  check for adding budget for Bill
+	 * 
+	 */
+
 	budget: string,
+	/**
+	 *  unitRate props  check for adding unitRate for Bill
+	 * 
+	 */
+
+
 	unitRate: string
 
 }

@@ -3,9 +3,26 @@ import { View, Text } from "react-native";
 import { style } from "./style"
 
 export interface BillCardProperties {
+	/**
+	 * Name of the Bill 
+	 * 
+	 */
 	name: string;
+
+	/**
+	 * month of the Bill
+	 */
+
 	month: string;
+  /**
+	 * budget of the Bill
+	 */
 	budget: number;
+
+	/**
+	 * styles of the BillCard
+	 */
+
 	style?: object;
 }
 
@@ -21,8 +38,8 @@ const BillCard = (props: BillCardProperties) => {
 						Total Consumed
 					</Text>
 					<View style={style.budgetContanier}>
-						<Text style={style.budget}>
-							Rs. {budget}
+						<Text numberOfLines={1} style={style.budget}>
+							{budget ? 'Rs.' : ''} {budget}
 						</Text>
 					</View>
 				</View>
@@ -33,7 +50,7 @@ const BillCard = (props: BillCardProperties) => {
 						{name}
 					</Text>
 					<View style={style.monthContainer}>
-						<Text style={style.month}>
+						<Text numberOfLines={1} style={style.month}>
 							{month}
 						</Text>
 					</View>

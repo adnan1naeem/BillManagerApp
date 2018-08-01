@@ -9,20 +9,45 @@ import { BillSubscription } from "./Subscriptionquery.graphql"
 import { View } from 'react-native'
 
 export interface dataProps {
-	loading:boolean,
-	allBills:any[],
-	subscribeToMore:(event:any)=>void
+
+
+  /**
+	 * loading props to check  data fetching from remote
+	 * 
+	 */
+	loading: boolean,
+
+
+  /**
+	 * allBills props for getting data of bills
+	 * 
+	 */
+
+	allBills: any[],
+
+
+  /**
+	 * props of subscription of data
+	 * 
+	 */
+
+	subscribeToMore: (event: any) => void
 }
 export interface Props {
 
-	data:dataProps 
+  /**
+	 * Data props for data sharing
+	 * 
+	 */
+
+	data: dataProps
 }
 
 class BillListing extends React.Component<Props, {}> {
 
 	constructor(props: Props) {
 		super(props);
-	
+
 	}
 	componentDidMount() {
 
