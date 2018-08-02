@@ -1,20 +1,22 @@
 import * as React from 'react'
-import { shallow, configure } from 'enzyme';
+import { shallow, configure, mount } from 'enzyme';
 import Home from "./Home";
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
-
-//import { Data } from "./MockData"
-// it('renders without crashing', () => {
-//   const rendered = renderer.create(<App />).toJSON()
-//   expect(rendered).toMatchSnapshot()
-//   expect(rendered).toBeTruthy()
-// })
-//configure({ adapter: new ReactSixteenAdapter() })
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
+import { withRouter } from 'react-router-native';
 
 
-describe('Home testcases', () => {
+configure({ adapter: new Adapter() })
 
-  it('should render component', () => {
-    expect(<Home />).toBeTruthy();
-  });
+test('renders correctly', () => {
+  shallow(<Home />);
 });
+
+
+test('renders correctly', () => {
+  const tree = renderer.create(withRouter(Home)).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+
+

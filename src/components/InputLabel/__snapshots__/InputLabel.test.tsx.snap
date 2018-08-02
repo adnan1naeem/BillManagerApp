@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={Object {}}
+  >
+    label
+  </Text>
+  <TextInput
+    Items={
+      Array [
+        Object {
+          "label": "Name",
+          "value": "Name",
+        },
+      ]
+    }
+    allowFontScaling={true}
+    handleChange={[Function]}
+    label="label"
+    style={
+      Object {
+        "borderBottomColor": "#4381FF",
+        "color": "#4381FF",
+        "height": 30,
+      }
+    }
+  />
+</View>
+`;

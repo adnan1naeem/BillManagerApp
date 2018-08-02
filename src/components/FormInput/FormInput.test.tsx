@@ -4,21 +4,17 @@ import FormInput from "./FormInput.component";
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
 
-
+module.exports = {};
 configure({ adapter: new Adapter() })
 
-describe('InputComponent', () => {
+describe('FormPicker Input unit Tests', () => {
 
-
-  test('renders correctly', () => {
+  test('if FormPickerInput renders correctly ', () => {
     shallow(<FormInput label="label" value="Name" />);
   });
 
-
-  test('renders correctly', () => {
+  test('FormPickerInput SnapShot Test', () => {
     const tree = renderer.create(<FormInput label="label" value="Name" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
 });
-

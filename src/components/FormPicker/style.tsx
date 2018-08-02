@@ -22,7 +22,6 @@ export const styles = {
   },
   Picker: {
     flex: 1,
-    color: '#4381FF',
     borderBottomColor: '#4381FF'
   },
 

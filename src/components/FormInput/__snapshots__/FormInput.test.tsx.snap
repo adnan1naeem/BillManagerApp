@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormPicker Input unit Tests FormPickerInput SnapShot Test 1`] = `
+<View
+  styles={
+    Object {
+      "display": "flex",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "marginLeft": 20,
+      }
+    }
+  >
+    label
+  </Text>
+  <View
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    />
+    <TextInput
+      allowFontScaling={true}
+      label="label"
+      style={
+        Object {
+          "borderBottomColor": "#4381FF",
+          "color": "#4381FF",
+          "flex": 1,
+          "height": 30,
+          "width": 300,
+        }
+      }
+      value="Name"
+    />
+  </View>
+</View>
+`;

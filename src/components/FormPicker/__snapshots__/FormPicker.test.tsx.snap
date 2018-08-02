@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormPicker Input unit Tests FormPickerInput SnapShot Test 1`] = `
+<View
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "paddingTop": 20,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "marginLeft": 20,
+        "marginTop": 5,
+      }
+    }
+  >
+    label
+  </Text>
+  <View
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    />
+    <View
+      style={
+        Object {
+          "borderBottomColor": "#4381FF",
+          "flex": 1,
+        }
+      }
+    >
+      <RCTPicker
+        items={
+          Array [
+            Object {
+              "label": "AC",
+              "textColor": undefined,
+              "value": "AC",
+            },
+            Object {
+              "label": "bulb",
+              "textColor": undefined,
+              "value": "bulb",
+            },
+          ]
+        }
+        onChange={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        selectedIndex={0}
+        style={
+          Array [
+            Object {
+              "height": 216,
+            },
+            undefined,
+          ]
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

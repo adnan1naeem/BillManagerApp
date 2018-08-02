@@ -17,7 +17,7 @@ import { getMainDefinition } from 'apollo-utilities';
 //  Api:
 //https://api-euwest.graphcms.com/v1/cjjtwi33j03e501ccj3uicdez/master
 
-const GRAPHCMS_API ='https://api.graph.cool/simple/v1/cjk3wyu0c5you0107e5a48dgk'
+const GRAPHCMS_API = 'https://api.graph.cool/simple/v1/cjk3wyu0c5you0107e5a48dgk'
 
 const wsLink = new WebSocketLink({
   uri: 'wss://subscriptions.graph.cool/v1/cjk3wyu0c5you0107e5a48dgk',
@@ -33,7 +33,7 @@ const httpLink = new HttpLink({
 const link = split(
   // split based on operation type
   ({ query }) => {
-    const { kind, operation }:any = getMainDefinition(query);
+    const { kind, operation }: any = getMainDefinition(query);
     return kind === 'OperationDefinition' && operation === 'subscription';
   },
   wsLink,
@@ -42,11 +42,10 @@ const link = split(
 
 
 const client = new ApolloClient({
- // link: new HttpLink({ uri: GRAPHCMS_API }),
- link,
- cache: new InMemoryCache(),
+  link: new HttpLink({ uri: GRAPHCMS_API }),
+  cache: new InMemoryCache(),
 })
 
 
 
-export {client};
+export { client };

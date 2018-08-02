@@ -12,7 +12,7 @@ import { query } from "../BillListing/query.graphql"
 import { Formik } from 'formik';
 import { View } from 'react-native';
 import { styles } from "./style"
-import { AssetList, DateList, SiteList } from "./MockData";
+import { AssetList, DateList } from "./MockData";
 export interface RouterProps {
 	push: (route: string) => void
 }

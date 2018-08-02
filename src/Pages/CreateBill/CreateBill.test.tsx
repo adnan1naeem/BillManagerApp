@@ -1,39 +1,28 @@
 import * as React from 'react'
-import { shallow, configure } from 'enzyme';
+import { shallow, configure, mount } from 'enzyme';
 import CreateBill from "./CreateBill";
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
+import { ApolloProvider } from 'react-apollo'
+import { ApolloClient } from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { NativeRouter, BackButton, Route } from 'react-router-native';
+import { client } from "../../ApolloConfigurations"
+configure({ adapter: new Adapter() })
 
-//import { Data } from "./MockData"
-// it('renders without crashing', () => {
-//   const rendered = renderer.create(<App />).toJSON()
-//   expect(rendered).toMatchSnapshot()
-//   expect(rendered).toBeTruthy()
-// })
-//configure({ adapter: new ReactSixteenAdapter() })
 
 
-describe('CreateBill Testcases', () => {
-
-  it('should render component', () => {
-    expect(<CreateBill />).toBeTruthy();
-  });
-
-  it('should throw error as required prop data is null', () => {
-    let error
-    try {
-      shallow(<CreateBill data={null} />)
-    } catch (e) {
-      error = e
-    }
-    expect(error).toBeDefined()
-  });
-  it('should throw error as required prop data is undefined', () => {
-    let error
-    try {
-      shallow(<CreateBill data={undefined} />)
-    } catch (e) {
-      error = e
-    }
-    expect(error).toBeDefined()
-  });
+test('renders correctly', () => {
+  shallow(<ApolloProvider client={client}><NativeRouter><CreateBill /></NativeRouter></ApolloProvider>);
 });
+
+
+test('renders correctly', () => {
+  const tree = renderer.create(
+    <ApolloProvider client={client}><NativeRouter><CreateBill /></NativeRouter></ApolloProvider>).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+
+
