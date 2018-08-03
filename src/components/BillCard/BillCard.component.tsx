@@ -36,7 +36,10 @@ const BillCard = (props: BillCardProperties) => {
 				<Text style={style.consumedLabel}>
 					Total Consumed
 				</Text>
-				<Text numberOfLines={1} style={style.budget}>
+				<Text
+					numberOfLines={1}
+					style={style.budget}
+				>
 					{budget ? 'Rs.' : ''} {budget}
 				</Text>
 			</View>

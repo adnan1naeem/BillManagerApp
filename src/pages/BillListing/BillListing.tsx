@@ -15,7 +15,10 @@ export interface dataProps {
 }
 export interface Props {
 
-	data: dataProps
+	data: dataProps,
+	loading: boolean,
+	empty: true,
+	error: true
 }
 
 class BillListing extends React.Component<Props, {}> {
@@ -43,18 +46,21 @@ class BillListing extends React.Component<Props, {}> {
 						_typename: 'Bill'
 					});
 				}
-
 			}
 		})
 	}
 
 	render() {
-		if (!this.props.data.allBills && this.props.data.loading == true) {
+		if (!this.props.data.allBills && this.props.data.loading == true || this.props.loading === true) {
 			return (
 				<View style={styles.IndicatorStyles}>
 					<ActivityIndicator size={20} />
 				</View>
 			);
+		}
+
+		if (this.props.data && this.props.data.allBills.length < 0 && this.props.data.loading === false || this.props.empty === true) {
+			return <Text>No Data found</Text>
 		}
 
 		if (this.props.data && this.props.data.allBills && this.props.data.loading == false) {
@@ -78,7 +84,7 @@ class BillListing extends React.Component<Props, {}> {
 				</ScrollView>
 			);
 		}
-		return <Text>!!Error fetching data</Text>
+		return this.props.error ? <Text>!!Error fetching data</Text> : '';
 	}
 }
 

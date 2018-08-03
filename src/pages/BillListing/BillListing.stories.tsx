@@ -10,11 +10,28 @@ import apolloStorybookDecorator from "apollo-storybook-react"
 import { Data } from "./MockData"
 import { allBills } from '../../components/BillCard/MockData';
 
+
+const loading = [{ data: { loading: true } }]
+const erorr = [{ data: { error: true } }]
+
 storiesOf('BillListing', module)
     .addDecorator(getStory => <View>{getStory()}</View>)
     .addDecorator(withKnobs)
     .add('BillListing Page story', () => (
         <BillListing />
+    ))
+
+    .add('BillListing Page  loading story', () => (
+        <BillListing loading={true} />
+    ))
+
+
+    .add('BillListing Page  error story', () => (
+        <BillListing data={{ data: { loading: true } }} error loading={false} />
+    ))
+
+    .add('BillListing Page  empty story', () => (
+        <BillListing empty={true} />
     ))
 
 

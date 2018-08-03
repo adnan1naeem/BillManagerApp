@@ -10,10 +10,10 @@ import { Mutationquery } from "./query.graphql"
 import { withRouter } from 'react-router-native';
 import { query } from "../BillListing/query.graphql"
 import { Formik } from 'formik';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { styles } from "./style"
 import { AssetList, DateList, SiteList } from "./MockData";
-import Yup from "yup";
+import * as yup from 'yup'
 export interface RouterProps {
 	push: (route: string) => void
 }
@@ -36,7 +36,6 @@ export interface Props {
 	 * 
 	 */
 	mutate: any,
-
 
   /**
 	 *  history props for routing 
@@ -100,6 +99,22 @@ export interface Props {
 }
 const CreateBill = (props: Props) => {
 
+
+	const validationSchema = yup.object().shape({
+		Name: yup.string()
+			.required('Name is required!'),
+		Site: yup.string()
+			.required('Site Name is required!'),
+		Asset: yup.string()
+			.required('Asset Name is required!'),
+		month: yup.string()
+			.required('month  is required!'),
+		budget: yup.number()
+			.required('budget is required!'),
+		unitRate: yup.number()
+			.required('unitRate is required!')
+
+	})
 	return (
 		<ScrollView>
 
@@ -109,17 +124,13 @@ const CreateBill = (props: Props) => {
 			/>
 
 			<AppBar
-				title="Creat`e"
+				title="Create"
 				BackButton={true}
 			/>
 
 			<Formik
 				initialValues={{ Name: props.Name, Site: props.Site, Asset: props.Asset, month: props.month, budget: props.budget, unitRate: props.unitRate }}
-				validationSchema={Yup.object().shape({
-					Name: Yup.string()
-						.required('Name is required')
-
-				})}
+				validationSchema={validationSchema}
 				onSubmit={values =>
 
 					props.mutate({
@@ -145,7 +156,7 @@ const CreateBill = (props: Props) => {
 
 				}>
 
-				{({ handleChange, handleSubmit, values }) => (
+				{({ handleChange, handleSubmit, values, errors }) => (
 
 					<View style={styles.Container}>
 						<FormInput
@@ -156,6 +167,8 @@ const CreateBill = (props: Props) => {
 							label="BillName"
 							onValueChange={handleChange('Name')}
 						/>
+
+						<Text>{errors.Name}</Text>
 						<FormPicker
 							IconSize={22}
 							IconName="md-checkmark-circle"
@@ -164,6 +177,8 @@ const CreateBill = (props: Props) => {
 							label="Select Site" Items={SiteList}
 							value={values.Site}
 						/>
+						<Text>{errors.Site}</Text>
+
 						<FormPicker
 							IconSize={22}
 							IconName="md-checkmark-circle"
@@ -173,6 +188,8 @@ const CreateBill = (props: Props) => {
 							Items={AssetList}
 							value={values.Asset}
 						/>
+						<Text>{errors.Asset}</Text>
+
 						<FormPicker
 							IconSize={22}
 							IconName="md-checkmark-circle"
@@ -182,18 +199,24 @@ const CreateBill = (props: Props) => {
 							handleChange={handleChange('month')}
 							Items={DateList}
 						/>
+						<Text>{errors.month}</Text>
+
 						<InputLabel
 							keyboardType='numeric'
 							value={values.unitRate}
 							onChangeText={handleChange('unitRate')}
 							label="Unit Rate"
 						/>
+						<Text>{errors.unitRate}</Text>
+
 						<InputLabel
 							keyboardType='numeric'
 							value={values.budget}
 							onChangeText={handleChange('budget')}
 							label="Budget"
 						/>
+						<Text>{errors.budget}</Text>
+
 						<Button
 							onPress={handleSubmit}
 							title="Save"

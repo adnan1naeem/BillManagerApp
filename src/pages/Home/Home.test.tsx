@@ -8,9 +8,7 @@ import { withRouter } from 'react-router-native';
 
 configure({ adapter: new Adapter() })
 
-test('renders correctly', () => {
-  shallow(<Home />);
-});
+
 
 
 test('renders correctly', () => {

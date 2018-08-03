@@ -12,9 +12,9 @@ import { WebSocketLink } from 'apollo-link-ws';
 
 configure({ adapter: new Adapter() })
 
-test('renders correctly', () => {
-  shallow(<ApolloProvider client={client}><NativeRouter><BillListing /></NativeRouter></ApolloProvider>);
-});
+// test('renders correctly', () => {
+//   shallow(<ApolloProvider client={client}><NativeRouter><BillListing /></NativeRouter></ApolloProvider>);
+// });
 
 
 test('renders correctly', () => {
