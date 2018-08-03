@@ -9,7 +9,7 @@ import { Data } from "./MockData"
 const stories = storiesOf('Card', module)
   .addDecorator(withKnobs)
   .addDecorator(getStory => <View style={{ backgroundColor: 'grey' }}>{getStory()}</View>)
-  .add('Card Story', () => (
+  .add('Card  knob Story', () => (
     <BillCard
       name={text('name', Data.name)}
       month={text('month', Data.month)}
@@ -17,10 +17,27 @@ const stories = storiesOf('Card', module)
     />
   ))
 
-  .add('Card Story  budget missing prop', () => (
+  .add('Card Story without knob', () => (
+    <BillCard
+      name={"ADNAN "}
+      month={"Jan"}
+      budget={2000}
+    />
+  ))
+
+  .add('Card Story  budget  missing prop knob story', () => (
     <BillCard
       name={text('name', Data.name)}
       month={text('month', Data.month)}
+    />
+  ))
+
+
+
+  .add('Card Story  budget  missing prop without knob story', () => (
+    <BillCard
+      name={Data.name}
+      month={Data.month}
     />
   ))
 

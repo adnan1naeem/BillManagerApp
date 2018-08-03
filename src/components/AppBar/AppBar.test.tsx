@@ -11,6 +11,14 @@ test('renders correctly', () => {
   shallow(<AppBar title="ssss" />);
 });
 
+test('AppBar should not render if title prop is missing', () => {
+  shallow(<AppBar title="" />);
+});
+
+test('AppBar should not render if title prop is undefined', () => {
+  shallow(<AppBar title={undefined} />);
+});
+
 
 test('renders correctly', () => {
   const tree = renderer.create(<AppBar title="ssss" />).toJSON();

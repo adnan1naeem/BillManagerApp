@@ -30,10 +30,20 @@ export interface formInputProps {
 
 const InputLabelComponent = (props: formInputProps) => {
 
+  const { label, onChangeText, value } = props;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.Name}>{props.label}</Text>
-      <TextInput style={styles.Input} onChangeText={props.onChangeText} value={props.value}  {...props} />
+      <Text
+        style={styles.Name}>
+        {label}
+      </Text>
+      <TextInput
+        style={styles.Input}
+        onChangeText={onChangeText}
+        value={value}
+        {...props}
+      />
     </View>
 
   );

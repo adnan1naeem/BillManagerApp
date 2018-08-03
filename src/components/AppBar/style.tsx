@@ -1,6 +1,6 @@
-export const styles = {
+export const styles: any = {
 
-  backButton: {
+  View: {
     alignItems: 'center',
     height: 56,
     display: 'flex',
@@ -12,16 +12,9 @@ export const styles = {
     color: 'white',
     flex: 1
   },
-  Icons: {
-    alignItems: 'center',
-    height: 56,
-    display: 'flex',
-    flexDirection: 'row',
-    flex: 1,
-    backgroundColor: 'blue'
-  },
   titlecolor: {
-    color: 'white'
+    color: 'white',
+    marginLeft: 10
 
   }
 }

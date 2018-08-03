@@ -1,4 +1,4 @@
-export const style = {
+export const style: any = {
 	card: {
 
 	},
@@ -19,7 +19,9 @@ export const style = {
 		paddingBottom: 10
 	},
 	body: {
-
+		display: 'flex',
+		padding: 7,
+		flexDirection: 'column',
 		backgroundColor: 'white'
 	},
 
@@ -35,8 +37,6 @@ export const style = {
 	topView: {
 		height: 180,
 		backgroundColor: '#0093FF',
-	},
-	descriptionView: {
 		display: 'flex',
 		flexDirection: 'column',
 		padding: 7
@@ -55,22 +55,13 @@ export const style = {
 		flex: 1
 	},
 
-	lowerView: {
-		//s	backgroundColor:"#DCDCDC",
-		display: 'flex',
-		padding: 7,
-		flexDirection: 'column',
-	},
+
 	name: {
 		color: '#0093FF',
 		fontSize: 14,
 		overflow: 'hidden',
 	},
-	monthContainer: {
-		display: 'flex',
-		flexDirection: 'row',
 
-	},
 	month: {
 		color: '#0093FF',
 		fontSize: 12,

@@ -33,28 +33,20 @@ const BillCard = (props: BillCardProperties) => {
 	return (
 		<View style={style.container}>
 			<View style={style.topView}>
-				<View style={style.descriptionView}>
-					<Text style={style.consumedLabel}>
-						Total Consumed
-					</Text>
-					<View style={style.budgetContanier}>
-						<Text numberOfLines={1} style={style.budget}>
-							{budget ? 'Rs.' : ''} {budget}
-						</Text>
-					</View>
-				</View>
+				<Text style={style.consumedLabel}>
+					Total Consumed
+				</Text>
+				<Text numberOfLines={1} style={style.budget}>
+					{budget ? 'Rs.' : ''} {budget}
+				</Text>
 			</View>
 			<View style={style.body}>
-				<View style={style.lowerView}>
-					<Text style={style.name}>
-						{name}
-					</Text>
-					<View style={style.monthContainer}>
-						<Text numberOfLines={1} style={style.month}>
-							{month}
-						</Text>
-					</View>
-				</View>
+				<Text style={style.name}>
+					{name}
+				</Text>
+				<Text numberOfLines={1} style={style.month}>
+					{month}
+				</Text>
 			</View>
 		</View>
 	);

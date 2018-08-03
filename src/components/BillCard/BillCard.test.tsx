@@ -14,6 +14,10 @@ describe('', () => {
     shallow(<BillCard budget={234} month="January" name="Okay Budget" />);
   });
 
+  test('', () => {
+    shallow(<BillCard budget={234} month="January" name="Okay Budget" />);
+  });
+
 
   test('renders correctly', () => {
     const tree = renderer.create(<BillCard budget={234} month="January" name="Okay Budget" />).toJSON();

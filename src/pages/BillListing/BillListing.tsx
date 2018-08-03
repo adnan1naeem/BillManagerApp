@@ -9,36 +9,11 @@ import { BillSubscription } from "./Subscriptionquery.graphql"
 import { View } from 'react-native'
 
 export interface dataProps {
-
-
-  /**
-	 * loading props to check  data fetching from remote
-	 * 
-	 */
 	loading: boolean,
-
-
-  /**
-	 * allBills props for getting data of bills
-	 * 
-	 */
-
 	allBills: any[],
-
-
-  /**
-	 * props of subscription of data
-	 * 
-	 */
-
 	subscribeToMore: (event: any) => void
 }
 export interface Props {
-
-  /**
-	 * Data props for data sharing
-	 * 
-	 */
 
 	data: dataProps
 }
@@ -56,17 +31,18 @@ class BillListing extends React.Component<Props, {}> {
 			updateQuery: (prev: any, { subscriptionData }: any) => {
 
 				if (!subscriptionData.data) return prev;
-				const newFeedItem = subscriptionData.data.Bill.node;
+				if (subscriptionData.data && subscriptionData.data.Bill) {
+					const newFeedItem = subscriptionData.data.Bill.node;
 
-				const edge = {
-					node: newFeedItem,
-					_typename: 'Bill'
+					const edge = {
+						node: newFeedItem,
+						_typename: 'Bill'
+					}
+					return Object.assign({}, prev, {
+						allBills: [...prev.allBills, edge.node],
+						_typename: 'Bill'
+					});
 				}
-				return Object.assign({}, prev, {
-					allBills: [...prev.allBills, edge.node],
-					_typename: 'Bill'
-				});
-
 
 			}
 		})

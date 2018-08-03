@@ -9,59 +9,69 @@ export interface formInputProps {
 	 * Adding label for the component
 	 * 
 	 */
-  label: string,
+	label: string,
 
   /**
 	 * Handler for changing Inputvalues
 	 * 
 	 */
-  onValueChange: (value: any) => void
+	onValueChange: (value: any) => void
 
 
   /**
 	 * props for  input values
 	 * 
 	 */
-  value?: string,
+	value?: string,
 
   /**
 	 * props for  Icon Size
 	 * 
 	 */
 
-  IconSize: number,
+	IconSize: number,
 
   /**
 	 * props for  Icon color
 	 * 
 	 */
 
-  IconColor: string
+	IconColor: string
 
   /**
 	 * props for  IconName
 	 * 
 	 */
 
-  IconName: string
+	IconName: string
 
 }
 
 const FormInput = (props: formInputProps) => {
-
-
-  return (
-    <View styles={styles.container}>
-      <Text style={styles.label} >{props.label}</Text>
-      <View style={styles.containers} >
-        <Ionicons style={styles.Icon} name={props.IconName} size={props.IconSize} color={props.IconColor} />
-        <TextInput value={props.value} style={styles.Input} onChangeText={props.onValueChange} {...props} />
-      </View>
-    </View>
-
-  );
+	const { IconName, label, IconSize, IconColor, onValueChange, value } = props;
+	return (
+		<View style={styles.container}>
+			<Text style={styles.label} >
+				{label}
+			</Text>
+			<View style={styles.containers} >
+				<Ionicons
+					style={styles.Icon}
+					name={IconName}
+					size={IconSize}
+					color={IconColor}
+				/>
+				<TextInput
+					value={value}
+					style={styles.Input}
+					onChangeText={onValueChange}
+					{...props}
+				/>
+			</View>
+		</View>
+	);
 }
-export default FormInput as React.ComponentType<any>;
+export default FormInput;
 
 
 

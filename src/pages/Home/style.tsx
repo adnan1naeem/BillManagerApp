@@ -1,4 +1,4 @@
-export const styles = {
+export const styles: any = {
 
   toolbar: {
     height: 56,
@@ -17,8 +17,8 @@ export const styles = {
     display: 'flex',
     flexDirection: 'column'
   },
-  Toolbar:{
-     marginLeft: 20 
+  Toolbar: {
+    marginLeft: 20
   }
 
 

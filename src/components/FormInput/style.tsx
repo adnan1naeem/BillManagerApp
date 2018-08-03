@@ -1,4 +1,4 @@
-const styles = {
+const styles: any = {
 
   container: {
     flex: 1,
