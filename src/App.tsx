@@ -9,11 +9,10 @@ import { client } from "./ApolloConfigurations"
 
 const App = () => (
     <ApolloProvider client={client}>
-        <	NativeRouter>
+        <NativeRouter>
             <BackButton>
                 <Routes />
             </BackButton>
-
         </NativeRouter >
     </ApolloProvider>
 );

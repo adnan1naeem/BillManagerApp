@@ -4,5 +4,9 @@ export const styles: any = {
     display: 'flex',
     flexDirection: 'column',
     padding: 5
+  },
+
+  error: {
+    color: 'red'
   }
 }

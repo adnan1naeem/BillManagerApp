@@ -102,16 +102,23 @@ const CreateBill = (props: Props) => {
 
 	const validationSchema = yup.object().shape({
 		Name: yup.string()
+
+			.matches(/^[A-Z]+$/i, "Invalid Name")
 			.required('Name is required!'),
 		Site: yup.string()
+			.matches(/^[A-Z]+$/i, "Invalid Name")
 			.required('Site Name is required!'),
 		Asset: yup.string()
+			.matches(/^[A-Z]+$/i, "Invalid Name")
 			.required('Asset Name is required!'),
 		month: yup.string()
+			.matches(/^[A-Z]+$/i, "Invalid Name")
 			.required('month  is required!'),
 		budget: yup.number()
+			.positive("Invalid Budget")
 			.required('budget is required!'),
 		unitRate: yup.number()
+			.positive("Invalid Budget")
 			.required('unitRate is required!')
 
 	})
@@ -168,7 +175,7 @@ const CreateBill = (props: Props) => {
 							onValueChange={handleChange('Name')}
 						/>
 
-						<Text>{errors.Name}</Text>
+						<Text style={styles.error}>{errors.Name}</Text>
 						<FormPicker
 							IconSize={22}
 							IconName="md-checkmark-circle"
@@ -177,7 +184,7 @@ const CreateBill = (props: Props) => {
 							label="Select Site" Items={SiteList}
 							value={values.Site}
 						/>
-						<Text>{errors.Site}</Text>
+						<Text style={styles.error}>{errors.Site}</Text>
 
 						<FormPicker
 							IconSize={22}
@@ -188,7 +195,7 @@ const CreateBill = (props: Props) => {
 							Items={AssetList}
 							value={values.Asset}
 						/>
-						<Text>{errors.Asset}</Text>
+						<Text style={styles.error}>{errors.Asset}</Text>
 
 						<FormPicker
 							IconSize={22}
@@ -199,7 +206,7 @@ const CreateBill = (props: Props) => {
 							handleChange={handleChange('month')}
 							Items={DateList}
 						/>
-						<Text>{errors.month}</Text>
+						<Text style={styles.error}>{errors.month}</Text>
 
 						<InputLabel
 							keyboardType='numeric'
@@ -207,7 +214,7 @@ const CreateBill = (props: Props) => {
 							onChangeText={handleChange('unitRate')}
 							label="Unit Rate"
 						/>
-						<Text>{errors.unitRate}</Text>
+						<Text style={styles.error}>{errors.unitRate}</Text>
 
 						<InputLabel
 							keyboardType='numeric'
@@ -215,7 +222,7 @@ const CreateBill = (props: Props) => {
 							onChangeText={handleChange('budget')}
 							label="Budget"
 						/>
-						<Text>{errors.budget}</Text>
+						<Text style={styles.error}>{errors.budget}</Text>
 
 						<Button
 							onPress={handleSubmit}

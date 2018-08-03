@@ -7,7 +7,6 @@ import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloProvider } from 'react-apollo'
-
 // import stories
 configure(() => {
   require('../src/components/AppBar/AppBar.stories');
@@ -15,9 +14,9 @@ configure(() => {
   require('../src/components/FormInput/FormInput.stories');
   require('../src/components/FormPicker/FormPicker.stories');
   require('../src/components/InputLabel/InputLabel.stories');
-  require('../src/Pages/Home/Home.stories');
-  require('../src/Pages/CreateBill/CreateBill.stories');
-  require('../src/Pages/BillListing/BillListing.stories');
+  require('../src/pages/Home/Home.stories');
+  require('../src/pages/CreateBill/CreateBill.stories');
+  require('../src/pages/BillListing/BillListing.stories');
 
 
 }, module);
