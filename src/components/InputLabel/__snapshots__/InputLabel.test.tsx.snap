@@ -29,6 +29,7 @@ exports[`renders correctly 1`] = `
     allowFontScaling={true}
     handleChange={[Function]}
     label="label"
+    onChangeText={undefined}
     style={
       Object {
         "borderBottomColor": "#4381FF",
@@ -36,6 +37,7 @@ exports[`renders correctly 1`] = `
         "height": 30,
       }
     }
+    value={undefined}
   />
 </View>
 `;

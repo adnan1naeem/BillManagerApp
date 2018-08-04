@@ -19,7 +19,7 @@ configure({ adapter: new Adapter() })
 
 test('renders correctly', () => {
   const tree = renderer.create(
-    <ApolloProvider client={client}><NativeRouter><BillListing /></NativeRouter></ApolloProvider>).toJSON();
+    <ApolloProvider client={client}><NativeRouter><BillListing data={{ data: { allBills: [{ name: "ADNAN" }] } }} /></NativeRouter></ApolloProvider>).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

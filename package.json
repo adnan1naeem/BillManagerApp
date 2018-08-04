@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.8",
     "@storybook/addon-graphql": "^3.4.8",
-    "@storybook/addon-info": "^3.4.8",
     "@storybook/addon-knobs": "^3.4.8",
     "@storybook/react": "^3.4.8",
     "@storybook/react-native": "^3.4.8",
@@ -15,10 +13,12 @@
     "@types/react": "^16.4.6",
     "@types/react-native": "^0.56.4",
     "awesome-typescript-loader": "^5.2.0",
+    "babel-jest": "22.2.2",
+    "babel-preset-jest": "^23.2.0",
     "babel-preset-react-es2015": "^1.3.0",
     "enzyme": "^3.3.0",
-    "jest": "^23.4.2",
-    "jest-expo": "^27.0.1",
+    "jest": "22.2.2",
+    "jest-expo": "25.1.0",
     "react": "16.3.1",
     "react-dom": "^16.4.1",
     "react-intl": "^2.4.0",
@@ -38,7 +38,7 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "jest",
+    "test": "jest --coverage",
     "jest": "jest -u",
     "storybook": "storybook start -p 7007"
   },
@@ -50,44 +50,31 @@
   "jest": {
     "preset": "jest-expo",
     "transform": {
-      "^.+\\.js$": "babel-jest",
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.js$": "babel-jest"
     },
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/styleMock.js"
-    },
-    "testEnvironment": "node",
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native)/"
+      "node_modules/(?!react-native|@expo/vector-icons)/"
     ],
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testRegex": "(/src/.*\\.(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
-      "js"
+      "js",
+      "jsx",
+      "json",
+      "node"
     ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/test/"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/(build|config|node_modules)/"
-    ],
-    "globals": {
-      "ts-jest": {
-        "useBabelrc": true
-      }
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/styleMock.js"
     }
   },
   "dependencies": {
-    "@babel/preset-react": "^7.0.0-beta.55",
-    "@storybook/addon-links": "^3.4.8",
+    "@babel/runtime": "^7.0.0-beta.56",
     "@types/enzyme": "^3.1.12",
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "^23.3.1",
-    "@types/react-router-native": "^4.2.3",
-    "@types/yup": "^0.24.7",
     "apollo-cache-inmemory": "^1.2.6",
     "apollo-client": "^2.3.7",
     "apollo-link-http": "^1.5.4",
@@ -102,12 +89,12 @@
     "jest-react-native": "^18.0.0",
     "jsdom": "^11.12.0",
     "react-apollo": "^2.1.9",
-    "react-native": "0.55.3",
+    "react-native": "^0.55.4",
     "react-native-web": "^0.8.9",
     "react-router": "^4.3.1",
     "react-router-native": "^4.3.0",
     "subscriptions-transport-ws": "^0.9.14",
-    "typescript": "2.9.2",
-    "yup": "^0.26.0"
+    "typescript": "^2.9.2",
+    "yup": "0.24.1"
   }
 }

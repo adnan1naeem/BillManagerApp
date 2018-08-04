@@ -14,115 +14,83 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "backgroundColor": "#0093FF",
+        "display": "flex",
+        "flexDirection": "column",
         "height": 180,
+        "padding": 7,
       }
     }
   >
-    <View
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
       style={
         Object {
-          "display": "flex",
-          "flexDirection": "column",
-          "padding": 7,
+          "color": "white",
+          "fontSize": 12,
         }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "white",
-            "fontSize": 12,
-          }
+      Total Consumed
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "white",
+          "flex": 1,
+          "fontSize": 20,
         }
-      >
-        Total Consumed
-      </Text>
-      <View
-        style={
-          Object {
-            "display": "flex",
-            "flexDirection": "row",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "color": "white",
-              "flex": 1,
-              "fontSize": 20,
-            }
-          }
-        >
-          Rs.
-           
-          234
-        </Text>
-      </View>
-    </View>
+      }
+    >
+      Rs.
+       
+      234
+    </Text>
   </View>
   <View
     style={
       Object {
         "backgroundColor": "white",
+        "display": "flex",
+        "flexDirection": "column",
+        "padding": 7,
       }
     }
   >
-    <View
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
       style={
         Object {
-          "display": "flex",
-          "flexDirection": "column",
-          "padding": 7,
+          "color": "#0093FF",
+          "fontSize": 14,
+          "overflow": "hidden",
         }
       }
     >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "color": "#0093FF",
-            "fontSize": 14,
-            "overflow": "hidden",
-          }
+      Okay Budget
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "#0093FF",
+          "flex": 1,
+          "fontSize": 12,
         }
-      >
-        Okay Budget
-      </Text>
-      <View
-        style={
-          Object {
-            "display": "flex",
-            "flexDirection": "row",
-          }
-        }
-      >
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
-          numberOfLines={1}
-          style={
-            Object {
-              "color": "#0093FF",
-              "flex": 1,
-              "fontSize": 12,
-            }
-          }
-        >
-          January
-        </Text>
-      </View>
-    </View>
+      }
+    >
+      January
+    </Text>
   </View>
 </View>
 `;

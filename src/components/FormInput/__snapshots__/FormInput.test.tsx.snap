@@ -2,7 +2,7 @@
 
 exports[`FormPicker Input unit Tests FormPickerInput SnapShot Test 1`] = `
 <View
-  styles={
+  style={
     Object {
       "display": "flex",
       "flex": 1,
@@ -38,6 +38,7 @@ exports[`FormPicker Input unit Tests FormPickerInput SnapShot Test 1`] = `
     <TextInput
       allowFontScaling={true}
       label="label"
+      onChangeText={undefined}
       style={
         Object {
           "borderBottomColor": "#4381FF",
