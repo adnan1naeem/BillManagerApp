@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NativeRouter } from 'react-router-native';
-import { client } from ".././src/ApolloConfigurations"
+import { client } from "../src/ApolloConfigurations"
 import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure } from '@storybook/react-native';
 import { ApolloClient } from 'apollo-client'

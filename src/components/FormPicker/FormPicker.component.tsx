@@ -1,6 +1,6 @@
 import { Text, Picker, View } from "react-native"
 import React from 'react'
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons } from 'expo__vector-icons'
 import { styles } from "./style"
 
 export interface Pickerprops {

@@ -1,7 +1,7 @@
 import { Text, View, TextInput } from "react-native"
 import styles from "./style"
 import React from 'react'
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons } from 'expo__vector-icons'
 
 export interface formInputProps {
 

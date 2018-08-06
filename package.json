@@ -30,7 +30,8 @@
     "ts-jest": "^23.0.1",
     "tslib": "^1.9.3",
     "typescript": "2.9.2",
-    "watchman": "^1.0.0"
+    "watchman": "^1.0.0",
+    "@blueeast/tslint-config-blueeast": "0.5.6"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -39,6 +40,7 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
+    "lint": "tslint -t codeFrame 'src/**/*.ts' 'src/**/*.tsx'",
     "test": "jest --coverage",
     "jest": "jest -u",
     "storybook": "storybook start -p 7007",
