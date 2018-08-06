@@ -1,42 +1,34 @@
 import React from 'react'
-import ToolbarAndroid from "../../components/AppBar/AppBar.component"
+import AppBar from "../../components/AppBar/AppBar.component"
 import { ScrollView, Text, ActivityIndicator, StatusBar } from "react-native";
 import BillCard from "../../components/BillCard/BillCard.component"
 import { styles } from "./style"
-import { graphql } from 'react-apollo'
-import { query } from "./query.graphql"
 import { BillSubscription } from "./Subscriptionquery.graphql"
 import { View } from 'react-native'
 
-export interface dataProps {
-	loading: boolean,
-	allBills: any[],
-	subscribeToMore: (event: any) => void
-}
+
 export interface Props {
-
-	data: dataProps,
-	loading: boolean,
-	empty: boolean,
-	error: boolean
+	subscribeToMore: (event: any) => void
+	data: { allBills: any[] },
+	loading?: boolean,
+	empty?: boolean,
+	Loading: boolean,
+	error?: boolean
 }
 
-class BillListing extends React.Component<Props, {}> {
+class BillListing extends React.PureComponent<Props, {}> {
 
 	constructor(props: Props) {
 		super(props);
 
 	}
-	componentDidMount() {
 
-		this.props.data.subscribeToMore({
+	componentDidMount() {
+		this.props.subscribeToMore({
 			document: BillSubscription,
 			updateQuery: (prev: any, { subscriptionData }: any) => {
 
-
 				if (!subscriptionData.data) return prev;
-
-
 
 				if (subscriptionData.data && subscriptionData.data.Bill && subscriptionData.data.Bill.mutation === 'CREATED') {
 					const newFeedItem = subscriptionData.data.Bill.node;
@@ -54,8 +46,8 @@ class BillListing extends React.Component<Props, {}> {
 				if (subscriptionData.data && subscriptionData.data.Bill && subscriptionData.data.Bill.mutation === 'DELETED') {
 					const newFeedItem = subscriptionData.data.Bill.previousValues;
 
-					const FilteredList = prev.allBills.filter(Data => {
-						return Data.id != newFeedItem.id;
+					const FilteredList = prev.allBills.filter((data: { id: string }) => {
+						return data.id != newFeedItem.id;
 					});
 
 					return Object.assign({}, prev, {
@@ -69,7 +61,7 @@ class BillListing extends React.Component<Props, {}> {
 					const updatedBills = subscriptionData.data.Bill.node
 					const bills = prev.allBills;
 
-					const oldBillsIndex = bills.findIndex(bill => {
+					const oldBillsIndex = bills.findIndex((bill: { id: string }) => {
 						return updatedBills.id === bill.id
 					})
 
@@ -80,14 +72,14 @@ class BillListing extends React.Component<Props, {}> {
 						allBills: bills,
 					}
 
-					return prev
 				}
 			}
 		})
+
 	}
 
 	render() {
-		if (!this.props.data.allBills && this.props.data.loading == true || this.props.loading === true) {
+		if (!this.props.data.allBills && this.props.Loading == true || this.props.loading === true) {
 			return (
 				<View style={styles.IndicatorStyles}>
 					<ActivityIndicator size={20} />
@@ -95,15 +87,14 @@ class BillListing extends React.Component<Props, {}> {
 			);
 		}
 
-		if (this.props.data && this.props.data.allBills.length < 0 && this.props.data.loading === false || this.props.empty === true) {
+		if (this.props.data && this.props.data.allBills && this.props.data.allBills.length < 0 && this.props.Loading === false || this.props.empty === true) {
 			return <Text>No Data found</Text>
 		}
 
-		if (this.props.data && this.props.data.allBills && this.props.data.loading == false && this.props.error != true) {
+		if (this.props.data && this.props.data.allBills && this.props.Loading == false && this.props.error != true) {
 			return (
 				<ScrollView>
-					<StatusBar barStyle="dark-content" hidden={false} />
-					<ToolbarAndroid
+					<AppBar
 						title="BillListing"
 						BackButton={true}
 					/>
@@ -125,6 +116,4 @@ class BillListing extends React.Component<Props, {}> {
 		}
 	}
 }
-
-
-export default graphql(query)(BillListing)
+export default BillListing;
