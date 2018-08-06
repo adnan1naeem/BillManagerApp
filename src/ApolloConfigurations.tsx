@@ -1,13 +1,6 @@
-import Home from "./Pages/Home/Home"
-import BillListing from "./Pages/BillListing/BillListing"
-import CreateBill from "./Pages/CreateBill/CreateBill"
-// import { createStackNavigator } from 'rt-navigation';
-import React from 'react'
-import View from './components/View/View.Component'
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { ApolloProvider } from 'react-apollo'
 import { WebSocketLink } from 'apollo-link-ws';
 import { split } from 'apollo-link';
 import { getMainDefinition } from 'apollo-utilities';

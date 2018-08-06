@@ -33,8 +33,12 @@ class BillListing extends React.Component<Props, {}> {
 			document: BillSubscription,
 			updateQuery: (prev: any, { subscriptionData }: any) => {
 
+
 				if (!subscriptionData.data) return prev;
-				if (subscriptionData.data && subscriptionData.data.Bill) {
+
+
+
+				if (subscriptionData.data && subscriptionData.data.Bill && subscriptionData.data.Bill.mutation === 'CREATED') {
 					const newFeedItem = subscriptionData.data.Bill.node;
 
 					const edge = {
@@ -45,6 +49,38 @@ class BillListing extends React.Component<Props, {}> {
 						allBills: [...prev.allBills, edge.node],
 						_typename: 'Bill'
 					});
+				}
+
+				if (subscriptionData.data && subscriptionData.data.Bill && subscriptionData.data.Bill.mutation === 'DELETED') {
+					const newFeedItem = subscriptionData.data.Bill.previousValues;
+
+					const FilteredList = prev.allBills.filter(Data => {
+						return Data.id != newFeedItem.id;
+					});
+
+					return Object.assign({}, prev, {
+						allBills: FilteredList,
+						_typename: 'Bill'
+					});
+				}
+
+				if (subscriptionData.data && subscriptionData.data.Bill && subscriptionData.data.Bill.mutation === 'UPDATED') {
+
+					const updatedBills = subscriptionData.data.Bill.node
+					const bills = prev.allBills;
+
+					const oldBillsIndex = bills.findIndex(bill => {
+						return updatedBills.id === bill.id
+					})
+
+					bills[oldBillsIndex] = updatedBills
+
+
+					return {
+						allBills: bills,
+					}
+
+					return prev
 				}
 			}
 		})

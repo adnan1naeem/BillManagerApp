@@ -10,7 +10,7 @@
     "@types/expo": "^27.0.6",
     "@types/expo__vector-icons": "^6.2.2",
     "@types/jasmine": "^2.8.8",
-    "@types/react": "^16.4.6",
+    "@types/react": "^16.4.7",
     "@types/react-native": "^0.56.4",
     "awesome-typescript-loader": "^5.2.0",
     "babel-jest": "22.2.2",
@@ -19,8 +19,8 @@
     "enzyme": "^3.3.0",
     "jest": "22.2.2",
     "jest-expo": "25.1.0",
-    "react": "16.3.1",
-    "react-dom": "^16.4.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.4.2",
     "react-intl": "^2.4.0",
     "react-native-scripts": "^1.14.0",
     "react-native-typescript-transformer": "^1.2.10",
@@ -34,13 +34,15 @@
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
+    "web": "react-scripts start",
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "jest --coverage",
     "jest": "jest -u",
-    "storybook": "storybook start -p 7007"
+    "storybook": "storybook start -p 7007",
+    "webpack": "webpack"
   },
   "babel": {
     "presets": [
@@ -75,6 +77,7 @@
     "@types/enzyme": "^3.1.12",
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "^23.3.1",
+    "@types/react-dom": "^16.0.6",
     "apollo-cache-inmemory": "^1.2.6",
     "apollo-client": "^2.3.7",
     "apollo-link-http": "^1.5.4",
@@ -90,11 +93,15 @@
     "jsdom": "^11.12.0",
     "react-apollo": "^2.1.9",
     "react-native": "^0.55.4",
+    "react-native-vector-icons": "^5.0.0",
     "react-native-web": "^0.8.9",
     "react-router": "^4.3.1",
     "react-router-native": "^4.3.0",
+    "source-map-loader": "^0.2.3",
     "subscriptions-transport-ws": "^0.9.14",
     "typescript": "^2.9.2",
+    "webpack": "^4.16.4",
+    "webpack-cli": "^3.1.0",
     "yup": "0.24.1"
   }
 }
