@@ -17,8 +17,8 @@ export interface Props {
 
 	data: dataProps,
 	loading: boolean,
-	empty: true,
-	error: true
+	empty: boolean,
+	error: boolean
 }
 
 class BillListing extends React.Component<Props, {}> {
@@ -99,7 +99,7 @@ class BillListing extends React.Component<Props, {}> {
 			return <Text>No Data found</Text>
 		}
 
-		if (this.props.data && this.props.data.allBills && this.props.data.loading == false) {
+		if (this.props.data && this.props.data.allBills && this.props.data.loading == false && this.props.error != true) {
 			return (
 				<ScrollView>
 					<StatusBar barStyle="dark-content" hidden={false} />
@@ -120,7 +120,9 @@ class BillListing extends React.Component<Props, {}> {
 				</ScrollView>
 			);
 		}
-		return this.props.error ? <Text>!!Error fetching data</Text> : '';
+		else {
+			return <Text>Error fetching data</Text>;
+		}
 	}
 }
 

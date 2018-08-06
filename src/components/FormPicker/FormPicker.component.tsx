@@ -63,12 +63,16 @@ const FormPicker = (props: Pickerprops) => {
 				{label}
 			</Text>
 			<View style={styles.IconContainer}>
-				<Ionicons
-					style={styles.Icon}
-					name={IconName}
-					size={IconSize}
-					color={IconColor}
-				/>
+				<View>
+
+					<Ionicons
+						style={styles.Icon}
+						name={IconName}
+						size={IconSize}
+						color={IconColor}
+					/>
+				</View>
+
 				<Picker
 					selectedValue={value}
 					style={styles.Picker}

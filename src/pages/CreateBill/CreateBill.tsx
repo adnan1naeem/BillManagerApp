@@ -4,7 +4,7 @@ import { ScrollView, StatusBar, ActivityIndicator } from "react-native";
 import FormInput from "../../components/FormInput/FormInput.component"
 import FormPicker from "../../components/FormPicker/FormPicker.component"
 import InputLabel from "../../components/InputLabel/InputLabel.component"
-import { graphql } from "react-apollo";
+import { graphql, Mutation } from "react-apollo";
 import { Button } from "react-native"
 import { Mutationquery } from "./query.graphql"
 import { withRouter } from 'react-router-native';
@@ -19,23 +19,7 @@ export interface RouterProps {
 }
 
 
-export interface MutationProps {
-
-
-  /**
-	 * props for variables of mutation 
-	 *  
-	 */
-	variables: any,
-}
 export interface Props {
-
-
-  /**
-	 * props of mutation of data
-	 * 
-	 */
-	mutate: any,
 
   /**
 	 *  history props for routing 
@@ -102,7 +86,6 @@ const CreateBill = (props: Props) => {
 
 	const validationSchema = yup.object().shape({
 		Name: yup.string()
-
 			.matches(/^[A-Z]+$/i, "Invalid Name")
 			.required('Name is required!'),
 		Site: yup.string()
@@ -134,107 +117,110 @@ const CreateBill = (props: Props) => {
 				title="Create"
 				BackButton={true}
 			/>
+			<Mutation mutation={Mutationquery}>
+				{(mutate) => (
+					<Formik
+						initialValues={{ Name: props.Name, Site: props.Site, Asset: props.Asset, month: props.month, budget: props.budget, unitRate: props.unitRate }}
+						validationSchema={validationSchema}
+						onSubmit={values =>
 
-			<Formik
-				initialValues={{ Name: props.Name, Site: props.Site, Asset: props.Asset, month: props.month, budget: props.budget, unitRate: props.unitRate }}
-				validationSchema={validationSchema}
-				onSubmit={values =>
+							mutate({
+								variables: {
+									name: values.Name,
+									budget: values.budget,
+									site: values.Site,
+									asset: values.Asset,
+									unitrate: values.unitRate,
+									month: values.month
+								},
+								refetchQueries: [
+									{ query: query }
+								]
 
-					props.mutate({
-						variables: {
-							name: values.Name,
-							budget: values.budget,
-							site: values.Site,
-							asset: values.Asset,
-							unitrate: values.unitRate,
-							month: values.month
-						},
-						refetchQueries: [
-							{ query: query }
-						]
+							}).then(() => {
 
-					}).then(() => {
+								if (props.loading == true) {
+									<ActivityIndicator />
+								}
+								props.history.push('/listing');
+							})
 
-						if (props.loading == true) {
-							<ActivityIndicator />
-						}
-						props.history.push('/listing');
-					})
+						}>
 
-				}>
+						{({ handleChange, handleSubmit, values, errors }) => (
 
-				{({ handleChange, handleSubmit, values, errors }) => (
+							<View style={styles.Container}>
+								<FormInput
+									IconColor="green"
+									IconSize={22}
+									IconName="md-checkmark-circle"
+									value={values.Name}
+									label="BillName"
+									onValueChange={handleChange('Name')}
+								/>
 
-					<View style={styles.Container}>
-						<FormInput
-							IconColor="green"
-							IconSize={22}
-							IconName="md-checkmark-circle"
-							value={values.Name}
-							label="BillName"
-							onValueChange={handleChange('Name')}
-						/>
+								<Text style={styles.error}>{errors.Name}</Text>
+								<FormPicker
+									IconSize={22}
+									IconName="md-checkmark-circle"
+									IconColor="green"
+									handleChange={handleChange('Site')}
+									label="Select Site" Items={SiteList}
+									value={values.Site}
+								/>
+								<Text style={styles.error}>{errors.Site}</Text>
 
-						<Text style={styles.error}>{errors.Name}</Text>
-						<FormPicker
-							IconSize={22}
-							IconName="md-checkmark-circle"
-							IconColor="green"
-							handleChange={handleChange('Site')}
-							label="Select Site" Items={SiteList}
-							value={values.Site}
-						/>
-						<Text style={styles.error}>{errors.Site}</Text>
+								<FormPicker
+									IconSize={22}
+									IconName="md-checkmark-circle"
+									IconColor="green"
+									handleChange={handleChange('Asset')}
+									label="Select Device"
+									Items={AssetList}
+									value={values.Asset}
+								/>
+								<Text style={styles.error}>{errors.Asset}</Text>
 
-						<FormPicker
-							IconSize={22}
-							IconName="md-checkmark-circle"
-							IconColor="green"
-							handleChange={handleChange('Asset')}
-							label="Select Device"
-							Items={AssetList}
-							value={values.Asset}
-						/>
-						<Text style={styles.error}>{errors.Asset}</Text>
+								<FormPicker
+									IconSize={22}
+									IconName="md-checkmark-circle"
+									IconColor="green"
+									value={values.month}
+									label="Select Month"
+									handleChange={handleChange('month')}
+									Items={DateList}
+								/>
+								<Text style={styles.error}>{errors.month}</Text>
 
-						<FormPicker
-							IconSize={22}
-							IconName="md-checkmark-circle"
-							IconColor="green"
-							value={values.month}
-							label="Select Month"
-							handleChange={handleChange('month')}
-							Items={DateList}
-						/>
-						<Text style={styles.error}>{errors.month}</Text>
+								<InputLabel
+									keyboardType='numeric'
+									value={values.unitRate}
+									onChangeText={handleChange('unitRate')}
+									label="Unit Rate"
+								/>
+								<Text style={styles.error}>{errors.unitRate}</Text>
 
-						<InputLabel
-							keyboardType='numeric'
-							value={values.unitRate}
-							onChangeText={handleChange('unitRate')}
-							label="Unit Rate"
-						/>
-						<Text style={styles.error}>{errors.unitRate}</Text>
+								<InputLabel
+									keyboardType='numeric'
+									value={values.budget}
+									onChangeText={handleChange('budget')}
+									label="Budget"
+								/>
+								<Text style={styles.error}>{errors.budget}</Text>
 
-						<InputLabel
-							keyboardType='numeric'
-							value={values.budget}
-							onChangeText={handleChange('budget')}
-							label="Budget"
-						/>
-						<Text style={styles.error}>{errors.budget}</Text>
-
-						<Button
-							onPress={handleSubmit}
-							title="Save"
-						/>
-					</View>
+								<Button
+									onPress={handleSubmit}
+									title="Save"
+								/>
+							</View>
+						)}
+					</Formik>
 				)}
-			</Formik>
+			</Mutation>
 
 		</ScrollView>
 
 	);
 }
 
-export default graphql(Mutationquery)(withRouter(CreateBill));
+export default withRouter(CreateBill);
