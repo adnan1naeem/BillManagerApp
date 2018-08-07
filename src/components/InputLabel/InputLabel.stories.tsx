@@ -9,7 +9,8 @@ storiesOf('InputLabel', module)
     .addDecorator(getStory => <View>{getStory()}</View>)
     .addDecorator(withKnobs)
     .add('InputLabel story', () => (
-        <InputLabel label={Data.label} />
+        < InputLabel onChangeText={() => 'string'}
+            label={Data.label} />
     ))
 
 

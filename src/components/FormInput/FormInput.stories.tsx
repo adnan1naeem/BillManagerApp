@@ -42,13 +42,13 @@ storiesOf('FormInput', module)
   ))
 
 
-  .add('No Icon story', () => (
-    <FormInput
-      label={Data.label}
-      onValueChange={Data.onValueChange}
+  // .add('No Icon story', () => (
+  //   <FormInput
+  //     label={Data.label}
+  //     onValueChange={Data.onValueChange}
 
-    />
-  ))
+  //   />
+  // ))
 
 
 
@@ -70,6 +70,7 @@ storiesOf('FormInput', module)
       IconColor={"blue"}
       IconSize={Data.IconSize}
       IconName={"ios-alarm"}
+      label=""
     />
   ))
 

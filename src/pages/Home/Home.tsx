@@ -1,8 +1,8 @@
-import React from 'react'
+import * as React from 'react'
 import AppBar from "../../components/AppBar/AppBar.component"
 import { styles } from "./style"
 import { Button, Image, View, ScrollView, StatusBar } from "react-native"
-import { withRouter } from 'react-router-native';
+import { withRouter } from '../../react-router';
 
 export interface RouterProps {
   push: (route: string) => void

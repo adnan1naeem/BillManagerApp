@@ -1,14 +1,13 @@
 import React from 'react'
-import AppBar from "../../components/AppBar/AppBar.component"
-import { ScrollView, Text, ActivityIndicator, StatusBar } from "react-native";
-import BillCard from "../../components/BillCard/BillCard.component"
+import { Text, ActivityIndicator } from "react-native";
+import BillCard from "../../components/BillCard/Index"
 import { styles } from "./style"
 import { BillSubscription } from "./Subscriptionquery.graphql"
 import { View } from 'react-native'
 
 
 export interface Props {
-	subscribeToMore: (event: any) => void
+	subscribeToMore: (event: any) => void,
 	data: { allBills: any[] },
 	loading?: boolean,
 	empty?: boolean,
@@ -93,22 +92,17 @@ class BillListing extends React.PureComponent<Props, {}> {
 
 		if (this.props.data && this.props.data.allBills && this.props.Loading == false && this.props.error != true) {
 			return (
-				<ScrollView>
-					<AppBar
-						title="BillListing"
-						BackButton={true}
-					/>
-					<View style={styles.container}>
-						{this.props.data.allBills.map((Data: any, i: any) =>
-							<BillCard
-								key={i}
-								name={Data.name}
-								month={Data.month}
-								budget={Data.budget}
-							/>)
-						}
-					</View>
-				</ScrollView>
+
+				<View style={styles.container}>
+					{this.props.data.allBills.map((Data: any, i: any) =>
+						<BillCard
+							key={i}
+							name={Data.name}
+							month={Data.month}
+							budget={Data.budget}
+						/>)
+					}
+				</View>
 			);
 		}
 		else {

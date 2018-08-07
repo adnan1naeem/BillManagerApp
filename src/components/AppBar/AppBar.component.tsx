@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Link } from 'react-router-native'
+// import MaterialCommunityIcons from '../../react-native-vector-icons/CommunityIcons/';
+import { Link } from '../../react-router'
 import { styles } from "./style"
 
 export interface Props {
@@ -28,7 +28,6 @@ export interface Props {
 
 const AppBar: React.StatelessComponent<Props> = (props) => {
   const { title } = props;
-
   return (
     <View style={styles.View}>
       {
@@ -36,10 +35,8 @@ const AppBar: React.StatelessComponent<Props> = (props) => {
           <Link
             to={'/'}
           >
-            <MaterialCommunityIcons
-              name="arrow-left"
-              size={25}
-              color="white"
+            <View
+
             />
           </Link>
           : null
@@ -51,3 +48,8 @@ const AppBar: React.StatelessComponent<Props> = (props) => {
 export default AppBar;
 
 
+{/* <MaterialCommunityIcons
+              name="arrow-left"
+              size={25}
+              color="white"
+            /> */}

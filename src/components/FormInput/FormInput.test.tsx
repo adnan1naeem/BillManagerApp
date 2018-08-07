@@ -10,11 +10,11 @@ configure({ adapter: new Adapter() })
 describe('FormPicker Input unit Tests', () => {
 
   test('if FormPickerInput renders correctly ', () => {
-    shallow(<FormInput label="label" value="Name" />);
+    shallow(<FormInput IconColor="" IconName="test" IconSize={20} onValueChange={() => event} label="label" value="Name" />);
   });
 
   test('FormPickerInput SnapShot Test', () => {
-    const tree = renderer.create(<FormInput label="label" value="Name" />).toJSON();
+    const tree = renderer.create(<FormInput IconColor="" IconName="test" IconSize={20} onValueChange={() => event} label="label" value="Name" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

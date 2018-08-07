@@ -24,7 +24,8 @@ export interface formInputProps {
 	 * handler  props for adding values in Input 
 	 * 
 	 */
-  onChangeText: (value: any) => void
+  onChangeText: (value: any) => void,
+  keyboardType?: any
 
 }
 

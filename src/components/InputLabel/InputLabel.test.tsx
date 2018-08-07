@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { shallow, configure } from 'enzyme';
 import InputLabel from "./InputLabel.component";
-import ReactSixteenAdapter from 'enzyme-adapter-react-16';
-
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import { Data } from "./MockData";
 
 // it('renders without crashing', () => {
@@ -11,12 +11,6 @@ import { Data } from "./MockData";
 //   expect(rendered).toBeTruthy()
 // })
 //configure({ adapter: new ReactSixteenAdapter() })
-
-import * as React from 'react'
-import { shallow, configure, mount } from 'enzyme';
-import AppBar from "./AppBar.component";
-import Adapter from 'enzyme-adapter-react-16';
-import renderer from 'react-test-renderer';
 
 
 configure({ adapter: new Adapter() })
@@ -27,8 +21,7 @@ describe('', () => {
   test('rens correctly', () => {
     shallow(<InputLabel
       label={Data.label}
-      Items={Data.Items}
-      handleChange={Data.onValueChange}
+      onChangeText={Data.onValueChange}
     />);
   });
 
@@ -36,8 +29,7 @@ describe('', () => {
   test('renders correctly', () => {
     const tree = renderer.create(<InputLabel
       label={Data.label}
-      Items={Data.Items}
-      handleChange={Data.onValueChange}
+      onChangeText={Data.onValueChange}
     />).toJSON();
     expect(tree).toMatchSnapshot();
   });

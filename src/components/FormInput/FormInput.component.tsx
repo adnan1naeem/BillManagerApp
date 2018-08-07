@@ -1,7 +1,7 @@
 import { Text, View, TextInput } from "react-native"
 import styles from "./style"
 import React from 'react'
-import { Ionicons } from '@expo/vector-icons'
+// import Ionicons from '../../react-native-vector-icons/IonIcons';
 
 export interface formInputProps {
 
@@ -15,7 +15,7 @@ export interface formInputProps {
 	 * Handler for changing Inputvalues
 	 * 
 	 */
-	onValueChange: (value: any) => void
+	onValueChange: (value: any) => void,
 
 
   /**
@@ -36,7 +36,7 @@ export interface formInputProps {
 	 * 
 	 */
 
-	IconColor: string
+	IconColor: string,
 
   /**
 	 * props for  IconName
@@ -56,11 +56,11 @@ const FormInput = (props: formInputProps) => {
 			</Text>
 			<View style={styles.containers} >
 				<View>
-					<Ionicons
+					{/* <Ionicons
 						name={IconName}
 						size={IconSize}
 						color={IconColor}
-					/>
+					/> */}
 				</View>
 				<TextInput
 					value={value}

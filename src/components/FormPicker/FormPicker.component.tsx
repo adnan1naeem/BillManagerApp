@@ -1,7 +1,7 @@
 import { Text, Picker, View } from "react-native"
 import React from 'react'
-import { Ionicons } from '@expo/vector-icons'
 import { styles } from "./style"
+// import Ionicons from '../../react-native-vector-icons/IonIcons';
 
 export interface Pickerprops {
 
@@ -16,7 +16,7 @@ export interface Pickerprops {
 	 * Handler props for selecting values in Picker
 	 * 
 	 */
-	handleChange: (event: any) => void
+	handleChange: (event: any) => void,
 
 
   /**
@@ -43,7 +43,7 @@ export interface Pickerprops {
 	 * IconColor props for adding Icon Color 
 	 * 
 	 */
-	IconColor: string
+	IconColor: string,
 
 
   /**
@@ -65,12 +65,12 @@ const FormPicker = (props: Pickerprops) => {
 			<View style={styles.IconContainer}>
 				<View>
 
-					<Ionicons
+					{/* <Ionicons
 						style={styles.Icon}
 						name={IconName}
 						size={IconSize}
 						color={IconColor}
-					/>
+					/> */}
 				</View>
 
 				<Picker

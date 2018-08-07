@@ -5,8 +5,6 @@ import { withKnobs, boolean, text } from '@storybook/addon-knobs/react';
 import { View, StyleSheet } from 'react-native';
 import { ScrollView, Button } from "react-native";
 import { Data } from "./MockData"
-import { withInfo } from '@storybook/addon-info';
-import { LinkTo, linkTo } from '@storybook/addon-links';
 
 
 
@@ -21,7 +19,6 @@ storiesOf('Appbar', module)
       <AppBar
         title="BillManager"
         BackButton={boolean('backbutton', Data.backbuttonTrue)}
-        to={'/'}
       />
     </ScrollView>
   ))

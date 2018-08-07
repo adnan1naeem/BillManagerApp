@@ -1,22 +1,19 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import AppBar from "../../components/AppBar/AppBar.component"
-import { ScrollView, StatusBar, ActivityIndicator } from "react-native";
-import FormInput from "../../components/FormInput/FormInput.component"
-import FormPicker from "../../components/FormPicker/FormPicker.component"
-import InputLabel from "../../components/InputLabel/InputLabel.component"
-import { graphql, Mutation } from "react-apollo";
+import { ScrollView, StatusBar, ActivityIndicator, View, Text } from "react-native";
+import FormInput from "../../components/FormInput/Index"
+import FormPicker from "../../components/FormPicker/Index"
+import InputLabel from "../../components/InputLabel/Index"
+import { Mutation } from "react-apollo";
 import { Button } from "react-native"
 import { Mutationquery } from "./query.graphql"
-import { withRouter } from 'react-router-native';
+import { withRouter } from '../../react-router';
 import { query } from "../BillListing/query.graphql"
 import { Formik } from 'formik';
-import { View, Text } from 'react-native';
 import { styles } from "./style"
 import { AssetList, DateList, SiteList } from "./MockData";
-import * as yup from 'yup'
-export interface RouterProps {
-	push: (route: string) => void
-}
+import * as yup from 'yup';
+
 
 
 export interface Props {
@@ -25,7 +22,7 @@ export interface Props {
 	 *  history props for routing 
 	 * 
 	 */
-	history: RouterProps,
+	history: any,
 
 
   /**
@@ -78,10 +75,10 @@ export interface Props {
 	 */
 
 
-	unitRate: string
+	unitRate: string,
 
 }
-const CreateBill = (props: Props) => {
+const CreateBill: any = (props: Props) => {
 
 
 	const validationSchema = yup.object().shape({
@@ -105,14 +102,11 @@ const CreateBill = (props: Props) => {
 			.required('unitRate is required!')
 
 	})
+
+
+
 	return (
 		<ScrollView>
-
-			<StatusBar
-				barStyle="dark-content"
-				hidden={false}
-			/>
-
 			<AppBar
 				title="Create"
 				BackButton={true}
@@ -122,7 +116,7 @@ const CreateBill = (props: Props) => {
 					<Formik
 						initialValues={{ Name: props.Name, Site: props.Site, Asset: props.Asset, month: props.month, budget: props.budget, unitRate: props.unitRate }}
 						validationSchema={validationSchema}
-						onSubmit={values =>
+						onSubmit={(values) =>
 
 							mutate({
 								variables: {

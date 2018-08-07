@@ -67,23 +67,23 @@ storiesOf('FormPicker', module)
     />
   ))
 
-  .add('FormPicker without label', () => (
-    <FormPicker
-      IconSize={20}
-      IconName={Data.IconName}
-      IconColor={"brown"}
-      handleChange={Data.onValueChange}
-      Items={Data.Items}
-    />
-  ))
+  // .add('FormPicker without label', () => (
+  //   <FormPicker
+  //     IconSize={20}
+  //     IconName={Data.IconName}
+  //     IconColor={"brown"}
+  //     handleChange={Data.onValueChange}
+  //     Items={Data.Items}
+  //   />
+  // ))
 
 
-  .add('FormPicker differentIcon without IconName prop', () => (
-    <FormPicker
-      IconSize={20}
-      IconColor={Data.IconColor}
-      label={Data.label}
-      handleChange={Data.onValueChange}
-      Items={Data.Items}
-    />
-  ))
+  // .add('FormPicker differentIcon without IconName prop', () => (
+  //   <FormPicker
+  //     IconSize={20}
+  //     IconColor={Data.IconColor}
+  //     label={Data.label}
+  //     handleChange={Data.onValueChange}
+  //     Items={Data.Items}
+  //   />
+  // ))

@@ -3,36 +3,28 @@ import { storiesOf } from '@storybook/react-native';
 import BillListing from './BillListing';
 import { withKnobs, text, } from '@storybook/addon-knobs/react';
 import { View } from 'react-native';
-import { Query } from "react-apollo";
-import gql from 'graphql-tag'
-import { query } from './query.graphql'
-import apolloStorybookDecorator from "apollo-storybook-react"
-import { Data } from "./MockData"
-import { allBills } from '../../components/BillCard/MockData';
 
 
-const loading = [{ data: { loading: true } }]
-const erorr = [{ data: { error: true } }]
 
 storiesOf('BillListing', module)
     .addDecorator(getStory => <View>{getStory()}</View>)
     .addDecorator(withKnobs)
-    .add('BillListing Page story', () => (
-        <BillListing error={false} />
-    ))
+    // .add('BillListing Page story', () => (
+    //     <BillListing data={[allBills:'']} Loading={true} subscribeToMore={(event) => event} error={false} />
+    // ))
 
-    .add('BillListing Page  loading story', () => (
-        <BillListing loading={true} />
-    ))
+    // .add('BillListing Page  loading story', () => (
+    //     <BillListing Loading={true} subscribeToMore={(event) => event} loading={true} />
+    // ))
 
 
-    .add('BillListing Page  error story', () => (
-        <BillListing error={true} />
-    ))
+    // .add('BillListing Page  error story', () => (
+    //     <BillListing Loading={true} subscribeToMore={(event) => event} error={true} />
+    // ))
 
-    .add('BillListing Page  empty story', () => (
-        <BillListing empty={true} />
-    ))
+    // .add('BillListing Page  empty story', () => (
+    //     <BillListing Loading={true} subscribeToMore={(event) => event} empty={true} />
+    // ))
 
 
 // export interface typedef {
