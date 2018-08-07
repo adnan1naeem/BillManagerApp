@@ -7,17 +7,14 @@ const styles: any = {
   },
   Name: {
   },
-  Icon: {
-    // marginTop: 10
-  },
   label: {
 
     marginLeft: 20
   },
   Input: {
-    flex: 1,
     width: 300,
     height: 30,
+    marginLeft: 20,
     color: '#4381FF',
     borderBottomColor: '#4381FF'
   },

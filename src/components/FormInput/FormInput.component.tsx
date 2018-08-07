@@ -55,12 +55,13 @@ const FormInput = (props: formInputProps) => {
 				{label}
 			</Text>
 			<View style={styles.containers} >
-				<Ionicons
-					style={styles.Icon}
-					name={IconName}
-					size={IconSize}
-					color={IconColor}
-				/>
+				<View>
+					<Ionicons
+						name={IconName}
+						size={IconSize}
+						color={IconColor}
+					/>
+				</View>
 				<TextInput
 					value={value}
 					style={styles.Input}

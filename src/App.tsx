@@ -1,5 +1,5 @@
 import Home from "./pages/Home/Home"
-import BillListing from "./pages/BillListing/BillListing"
+import BillListing from "./pages/BillListing/Container"
 import CreateBill from "./pages/CreateBill/CreateBill"
 import { NativeRouter, BackButton, Route } from 'react-router-native';
 import React from 'react'

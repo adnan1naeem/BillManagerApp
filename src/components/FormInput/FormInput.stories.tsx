@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react-native';
 import FormInput from './FormInput.component';
 import { withKnobs, text, } from '@storybook/addon-knobs/react';
 import { View } from 'react-native';
-
 import { Data } from "./MockData"
+
 storiesOf('FormInput', module)
   .addDecorator(getStory => <View>{getStory()}</View>)
   .addDecorator(withKnobs)
@@ -25,7 +25,7 @@ storiesOf('FormInput', module)
       label={Data.label}
       onValueChange={Data.onValueChange}
       IconColor={Data.IconColor}
-      IconSize={20}
+      IconSize={22}
       IconName={Data.IconName}
     />
   ))
@@ -42,13 +42,11 @@ storiesOf('FormInput', module)
   ))
 
 
-  .add('Different IconName story', () => (
+  .add('No Icon story', () => (
     <FormInput
       label={Data.label}
       onValueChange={Data.onValueChange}
-      IconColor={"blue"}
-      IconSize={Data.IconSize}
-      IconName={"arrow-left"}
+
     />
   ))
 
@@ -61,7 +59,7 @@ storiesOf('FormInput', module)
       onValueChange={Data.onValueChange}
       IconColor={"blue"}
       IconSize={Data.IconSize}
-      IconName={"arrow-left"}
+      IconName={"ios-alarm"}
     />
   ))
 
@@ -71,7 +69,7 @@ storiesOf('FormInput', module)
       onValueChange={Data.onValueChange}
       IconColor={"blue"}
       IconSize={Data.IconSize}
-      IconName={"arrow-left"}
+      IconName={"ios-alarm"}
     />
   ))
 

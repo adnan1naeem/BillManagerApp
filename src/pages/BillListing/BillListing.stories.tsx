@@ -18,7 +18,7 @@ storiesOf('BillListing', module)
     .addDecorator(getStory => <View>{getStory()}</View>)
     .addDecorator(withKnobs)
     .add('BillListing Page story', () => (
-        <BillListing />
+        <BillListing error={false} />
     ))
 
     .add('BillListing Page  loading story', () => (
@@ -27,7 +27,7 @@ storiesOf('BillListing', module)
 
 
     .add('BillListing Page  error story', () => (
-        <BillListing data={{ data: { loading: true } }} error loading={false} />
+        <BillListing error={true} />
     ))
 
     .add('BillListing Page  empty story', () => (
