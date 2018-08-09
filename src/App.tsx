@@ -4,7 +4,7 @@ import BillListing from "./pages/BillListing/Container"
 import CreateBill from "./pages/CreateBill/CreateBill"
 import { View, Text } from 'react-native'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
-// import { client } from "./ApolloConfigurations"
+import { client } from "./ApolloConfigurations"
 import { StaticRouter, Router, Route, Switch, MemoryRouter } from 'react-router'
 import { Platform, StyleSheet } from 'react-native';
 import { BrowserRouter } from 'react-router-dom'
@@ -17,34 +17,34 @@ const history = createMemoryHistory();
 
 
 
-// const Routes = () => {
-
-//     return (
-//         <Switch>
-//             <Route exact path="/" component={Home} />
-//             <Route path="/create" component={CreateBill} />
-//             <Route path="/listing" component={BillListing} />
-//         </Switch>
-//     );
-// }
-
-// const App = () => (
-
-//     <ApolloProvider client={client} >
-//         <BrowserRouter history={history}>
-//             <Routes />
-//         </BrowserRouter>
-//     </ApolloProvider >
-// );
-
-
-const App = (event) => {
+const Routes = () => {
 
     return (
-        <View><Text>ADNAN </Text></View>
-
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/create" component={CreateBill} />
+            <Route path="/listing" component={BillListing} />
+        </Switch>
     );
-
 }
+
+const App = () => (
+
+    <ApolloProvider client={client} >
+        <BrowserRouter history={history}>
+            <Routes />
+        </BrowserRouter>
+    </ApolloProvider >
+);
+
+
+// const App = (event) => {
+
+//     return (
+//         <View><Text>ADNAN </Text></View>
+
+//     );
+
+// }
 export default App;
 

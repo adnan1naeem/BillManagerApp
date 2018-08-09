@@ -1,7 +1,6 @@
 
 
 const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
 module.exports = {
@@ -13,7 +12,8 @@ module.exports = {
   },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"],
+    mainFields: ['browser', 'main', 'module'],
+    extensions: [".ts", ".tsx", ".js", ".json", ".jsx"],
     alias: {
       'react-native': 'react-native-web'
     }
