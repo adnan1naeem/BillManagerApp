@@ -1,5 +1,8 @@
+
 const express = require("express");
 const { renderToString } = require("react-dom/server");
+import App from "../App"
+import * as React from 'react'
 
 const SSR = require("../index");
 
@@ -10,7 +13,7 @@ function server(port) {
 
   app.use(express.static("static"));
   app.get("/", (req, res) =>
-    res.status(200).send(renderMarkup(renderToString(SSR)))
+    res.status(200).send(renderMarkup(renderToString(<App />)))
   );
 
   app.listen(port);
