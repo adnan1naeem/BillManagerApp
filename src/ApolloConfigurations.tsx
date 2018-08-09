@@ -6,7 +6,6 @@ import { split } from 'apollo-link';
 import { getMainDefinition } from 'apollo-utilities';
 
 
-
 const wsLink = new WebSocketLink({
   uri: 'wss://subscriptions.graph.cool/v1/cjk3wyu0c5you0107e5a48dgk',
   options: {
@@ -30,10 +29,11 @@ const link = split(
 
 
 const client = new ApolloClient({
-  // link: new HttpLink({ uri: GRAPHCMS_API }),
+  ssrMode: true,
   link,
   cache: new InMemoryCache(),
 })
+
 
 
 
