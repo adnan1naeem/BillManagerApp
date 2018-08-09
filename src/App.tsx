@@ -7,7 +7,7 @@ import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import { client } from "./ApolloConfigurations"
 import { StaticRouter, Router, Route, Switch, MemoryRouter } from 'react-router'
 import { Platform, StyleSheet } from 'react-native';
-import { BrowserRouter } from 'react-router-dom'
+//import { BrowserRouter } from 'react-router-dom'
 //import { Routess } from "../src/react-router"
 import ReactDOM from 'react-dom';
 import createMemoryHistory from 'history/createMemoryHistory'
@@ -31,9 +31,9 @@ const Routes = () => {
 const App = () => (
 
     <ApolloProvider client={client} >
-        <BrowserRouter history={history}>
+        <StaticRouter>
             <Routes />
-        </BrowserRouter>
+        </StaticRouter>
     </ApolloProvider >
 );
 
