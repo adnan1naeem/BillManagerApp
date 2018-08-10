@@ -1,36 +1,56 @@
 
-const express = require("express");
-const { renderToString } = require("react-dom/server");
-import App from "../App"
+const Express = require("express");
+const { renderToString, renderToStaticMarkup } = require("react-dom/server");
+import App from "./serverApollo"
 import * as React from 'react'
+import routes from "./routes"
+import { StaticRouter, Router, Route, Switch, MemoryRouter, matchPath } from 'react-router'
+import { client, Routes } from "./serverApollo"
+import { ApolloProvider, getDataFromTree } from 'react-apollo'
+import ReactDOM from 'react-dom';
 
-const SSR = require("../index");
+const app = new Express();
 
-server(process.env.PORT || 9090);
+app.use((req, res) => {
 
-function server(port) {
-  const app = express();
 
-  app.use(express.static("static"));
-  app.get("/", (req, res) =>
-    res.status(200).send(renderMarkup(renderToString(<App />)))
+  const context = {};
+
+  const Html = ({ content, state }) => {
+    return (
+      <html>
+        <body>
+          <div id="root" dangerouslySetInnerHTML={{ __html: content }} />
+          <script dangerouslySetInnerHTML={{
+            __html: `window.__APOLLO_STATE__=${JSON.stringify(state).replace(/</g, '\\u003c')};`,
+          }} />
+        </body>
+      </html>
+    );
+  }
+  // The client-side App will instead use <BrowserRouter>
+  const App = (
+    <ApolloProvider client={client}>
+      <StaticRouter location={req.url} context={context}>
+        <Routes />
+      </StaticRouter>
+    </ApolloProvider>
   );
 
-  app.listen(port);
+  getDataFromTree(App).then(() => {
+    // We are ready to render for real
+    const content = renderToString(App);
+    const initialState = client.extract();
 
-  console.log("\n", `app Listening at port:${9090}`);
-}
+    const html = <Html content={content} state={initialState} />;
 
-function renderMarkup(html) {
-  return `<!DOCTYPE html>
-<html>
-  <head>
-    <title>Webpack SSR Demo</title>
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <div id="app">${html}</div>
-    <script src="./index.js"></script>
-  </body>
-</html>`;
-}
+    res.status(200);
+    res.send(`<!doctype html>\n${renderToStaticMarkup(html)}`);
+    res.end();
+  });
+  // rendering code (see below)
+});
+
+app.listen(9090, () => console.log( // eslint-disable-line no-console
+  `app Server is now running on http://localhost:9090`
+));

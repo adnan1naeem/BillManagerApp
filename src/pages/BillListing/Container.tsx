@@ -13,7 +13,7 @@ const Container = () => {
         title="BillListing"
         BackButton={true}
       />
-      <Query query={query}>
+      <Query query={query} ssr={false}>
         {({ data, loading, subscribeToMore }: any) => {
           return (<BillListing Loading={loading} data={loading === false ? data : {}} subscribeToMore={subscribeToMore} />);
         }}

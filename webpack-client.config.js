@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './src/server/server.tsx',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
@@ -12,23 +12,19 @@ module.exports = {
   },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    mainFields: ['browser', 'main', 'module'],
+    //   mainFields: ['browser', 'main', 'module'],
     extensions: [".ts", ".tsx", ".js", ".json", ".jsx"],
     alias: {
       'react-native': 'react-native-web'
     }
 
   },
+  devServer: {
 
-  target: 'node',
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: `'production'`
-      },
-    }),
-  ],
+    port: 8081,
+    historyApiFallback: true,
 
+  },
   module: {
     rules: [
       {
@@ -42,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'css-loader/locals'
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.ttf$/,

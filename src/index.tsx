@@ -7,11 +7,6 @@ const SSR = <App />
 
 // Render only in the browser, export otherwise
 
-if (process.browser) {
-  ReactDOM.hydrate(SSR, document.getElementById("app"));
-}
-else {
+ReactDOM.hydrate(SSR, document.getElementById("app"));
 
-  module.exports = SSR;
 
-}

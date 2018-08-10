@@ -5,9 +5,9 @@ import CreateBill from "./pages/CreateBill/CreateBill"
 import { View, Text } from 'react-native'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import { client } from "./ApolloConfigurations"
-import { StaticRouter, Router, Route, Switch, MemoryRouter } from 'react-router'
+import { StaticRouter, Router, Route, Switch, MemoryRouter, Redirect } from 'react-router'
 import { Platform, StyleSheet } from 'react-native';
-//import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 //import { Routess } from "../src/react-router"
 import ReactDOM from 'react-dom';
 import createMemoryHistory from 'history/createMemoryHistory'
@@ -22,7 +22,7 @@ const Routes = () => {
     return (
         <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/create" component={CreateBill} />
+            <Route path="/create" exact />
             <Route path="/listing" component={BillListing} />
         </Switch>
     );
@@ -31,20 +31,11 @@ const Routes = () => {
 const App = () => (
 
     <ApolloProvider client={client} >
-        <StaticRouter>
+        <BrowserRouter history={history}>
             <Routes />
-        </StaticRouter>
+        </BrowserRouter>
     </ApolloProvider >
 );
 
-
-// const App = (event) => {
-
-//     return (
-//         <View><Text>ADNAN </Text></View>
-
-//     );
-
-// }
 export default App;
 
