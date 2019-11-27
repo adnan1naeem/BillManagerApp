@@ -1,0 +1,424 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "blue",
+          "display": "flex",
+          "flex": 1,
+          "flexDirection": "row",
+          "height": 56,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={null}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+        />
+      </View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "white",
+          }
+        }
+      >
+        Create
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "padding": 5,
+        }
+      }
+    >
+      <View
+        styles={
+          Object {
+            "display": "flex",
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "marginLeft": 20,
+            }
+          }
+        >
+          BillName
+        </Text>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+          <TextInput
+            IconColor="green"
+            IconName="md-checkmark-circle"
+            IconSize={22}
+            allowFontScaling={true}
+            label="BillName"
+            onChangeText={[Function]}
+            onValueChange={[Function]}
+            style={
+              Object {
+                "borderBottomColor": "#4381FF",
+                "color": "#4381FF",
+                "flex": 1,
+                "height": 30,
+                "width": 300,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "paddingTop": 20,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "marginLeft": 20,
+              "marginTop": 5,
+            }
+          }
+        >
+          Select Device
+        </Text>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#4381FF",
+                "flex": 1,
+              }
+            }
+          >
+            <RCTPicker
+              items={
+                Array [
+                  Object {
+                    "label": "AC",
+                    "textColor": undefined,
+                    "value": "AC",
+                  },
+                  Object {
+                    "label": "BULB",
+                    "textColor": undefined,
+                    "value": "BULB",
+                  },
+                  Object {
+                    "label": "FAN",
+                    "textColor": undefined,
+                    "value": "FAN",
+                  },
+                ]
+              }
+              onChange={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selectedIndex={0}
+              style={
+                Array [
+                  Object {
+                    "height": 216,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "paddingTop": 20,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "marginLeft": 20,
+              "marginTop": 5,
+            }
+          }
+        >
+          Select Month
+        </Text>
+        <View
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#4381FF",
+                "flex": 1,
+              }
+            }
+          >
+            <RCTPicker
+              items={
+                Array [
+                  Object {
+                    "label": "January",
+                    "textColor": undefined,
+                    "value": "January",
+                  },
+                  Object {
+                    "label": "February",
+                    "textColor": undefined,
+                    "value": "February",
+                  },
+                  Object {
+                    "label": "March",
+                    "textColor": undefined,
+                    "value": "March",
+                  },
+                  Object {
+                    "label": "April",
+                    "textColor": undefined,
+                    "value": "April",
+                  },
+                  Object {
+                    "label": "May",
+                    "textColor": undefined,
+                    "value": "May",
+                  },
+                  Object {
+                    "label": "June",
+                    "textColor": undefined,
+                    "value": "June",
+                  },
+                  Object {
+                    "label": "July",
+                    "textColor": undefined,
+                    "value": "July",
+                  },
+                  Object {
+                    "label": "August",
+                    "textColor": undefined,
+                    "value": "August",
+                  },
+                  Object {
+                    "label": "September",
+                    "textColor": undefined,
+                    "value": "September",
+                  },
+                  Object {
+                    "label": "October",
+                    "textColor": undefined,
+                    "value": "October",
+                  },
+                  Object {
+                    "label": "November",
+                    "textColor": undefined,
+                    "value": "November",
+                  },
+                  Object {
+                    "label": "December",
+                    "textColor": undefined,
+                    "value": "December",
+                  },
+                ]
+              }
+              onChange={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selectedIndex={0}
+              style={
+                Array [
+                  Object {
+                    "height": 216,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={Object {}}
+        >
+          Unit Rate
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          keyboardType="numeric"
+          label="Unit Rate"
+          onChangeText={[Function]}
+          style={
+            Object {
+              "borderBottomColor": "#4381FF",
+              "color": "#4381FF",
+              "height": 30,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={Object {}}
+        >
+          Budget
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          keyboardType="numeric"
+          label="Budget"
+          onChangeText={[Function]}
+          style={
+            Object {
+              "borderBottomColor": "#4381FF",
+              "color": "#4381FF",
+              "height": 30,
+            }
+          }
+        />
+      </View>
+      <View
+        accessibilityComponentType="button"
+        accessibilityTraits={
+          Array [
+            "button",
+          ]
+        }
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+            ]
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "padding": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Save
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

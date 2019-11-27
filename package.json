@@ -1,0 +1,41 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "expo": "^35.0.0",
+    "react": "16.8.3",
+    "react-dom": "16.8.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-web": "^0.11.7",
+    "formik": "^1.0.2",
+    "graphql-tag": "^2.9.2",
+    "history": "^4.7.2",
+    "jest-react-native": "^18.0.0",
+    "jsdom": "^11.12.0",
+    "react-apollo": "^2.1.9",
+    "graphql": "0.13.0",
+    "react-native-scripts": "^2.0.1",
+    "react-native-vector-icons": "^5.0.0",
+    "react-router": "^4.3.1",
+    "react-router-native": "^4.3.0",
+    "yup": "0.24.1",
+    "apollo-client": "^2.6.4",
+    "apollo-link-http": "^1.5.4",
+    "apollo-link-ws": "^1.0.8",
+    "typescript": "^2.9.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "apollo-cache-inmemory": "^1.2.6",
+    "subscriptions-transport-ws": "^0.9.14"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "^7.1.0"
+  },
+  "private": true
+}

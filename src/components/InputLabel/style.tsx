@@ -1,0 +1,27 @@
+const styles: any = {
+
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  Name: {
+  },
+  Icon: {
+    // marginTop: 10
+  },
+  label: {
+
+    // marginLeft: 20
+  },
+  Input: {
+
+    height: 30,
+    color: '#4381FF',
+    borderBottomColor: '#4381FF'
+  },
+  containers: {
+    flexDirection: 'row',
+    display: 'flex'
+  }
+}
+export default styles

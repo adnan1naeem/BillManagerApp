@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "paddingBottom": 10,
+      "paddingTop": 10,
+      "width": 150,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#0093FF",
+        "display": "flex",
+        "flexDirection": "column",
+        "height": 180,
+        "padding": 7,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 12,
+        }
+      }
+    >
+      Total Consumed
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "white",
+          "flex": 1,
+          "fontSize": 20,
+        }
+      }
+    >
+      Rs.
+       
+      234
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "display": "flex",
+        "flexDirection": "column",
+        "padding": 7,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#0093FF",
+          "fontSize": 14,
+          "overflow": "hidden",
+        }
+      }
+    >
+      Okay Budget
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "#0093FF",
+          "flex": 1,
+          "fontSize": 12,
+        }
+      }
+    >
+      January
+    </Text>
+  </View>
+</View>
+`;
