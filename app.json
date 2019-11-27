@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "dsdssd",
-    "slug": "ssdd",
+    "name": "BillManager",
+    "slug": "bill-manager",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
